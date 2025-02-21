@@ -1,0 +1,13 @@
+@import "tailwindcss";
+
+@theme {
+    /* Fuentes */
+    --font-quicksand: "Quicksand", serif;
+    --font-montserrat: "Montserrat", serif; 
+    /* Colores */
+    --black-bg:#1C1919
+}
+
+body{
+    background-color: var(--black-bg);
+}
