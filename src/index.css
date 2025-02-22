@@ -27,7 +27,21 @@
 .button-hero{
     @apply rounded-3xl border w-44 px-7 py-2 ;
 }
-
+.button-hero::before {
+  content: "";
+  position: absolute;
+  inset: -3px; /* Asegura que el borde cubra bien */
+  border-radius: inherit;
+  padding: 3px;
+  background: linear-gradient(45deg, #6FBB03, #6B0301, #013882, #6FBB03);
+  background-size: 300% 300%;
+  animation: borderAnimation 5s infinite linear;
+  -webkit-mask: 
+      linear-gradient(#fff 0 0) content-box, 
+      linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
 /* Key Frames */
 @keyframes buttonAnimation {
   0% { 
