@@ -5,9 +5,50 @@
     --font-quicksand: "Quicksand", serif;
     --font-montserrat: "Montserrat", serif; 
     /* Colores */
-    --black-bg:#1C1919
+    --black-bg:#1C1919;
+    --color-title-hero: #FFFFFF;
+    --color-button-green: #6FBB03;
+    --color-button-red: #6B0301;
+    --color-button-blue: #013882;
 }
 
-body{
-    background-color: var(--black-bg);
+@layer utilities {
+    .theme-dark {
+      background-color: #1C1919;
+    }
+    
+    .theme-light {
+      background-color: white;
+    }
+  }
+.button-hero{
+    @apply rounded-3xl border w-44 px-7 py-2 ;
+}
+
+/* Key Frames */
+@keyframes buttonAnimation {
+  0% { 
+    border-color: #6FBB03; 
+    color: #6FBB03;
+    filter: drop-shadow(0px 0px 5px #6FBB03) brightness(1.5);
+  }
+  45% { 
+    border-color: #6B0301; 
+    color: #6B0301;
+    filter: drop-shadow(0px 0px 20px #6B0301) brightness(2.5);
+  }
+  85% { 
+    border-color: #013882; 
+    color: #013882;
+    filter: drop-shadow(0px 0px 20px #013882) brightness(2.5);
+  }
+  100% { 
+    border-color: #6FBB03; 
+    color: #6FBB03;
+    filter: drop-shadow(0px 0px 5px #6FBB03) brightness(1.5);
+  }
+}
+
+.animate-button {
+  animation: buttonAnimation 7.3s infinite;
 }

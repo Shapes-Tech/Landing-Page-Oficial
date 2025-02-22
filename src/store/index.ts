@@ -1,9 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
 import languageReducer from "./languageSlice";
+import  colorReducer from "./colorSlice";
 
 export const store = configureStore({
     reducer:{
-        language: languageReducer
+        language: languageReducer,
+        color: colorReducer
     }
 })
 
