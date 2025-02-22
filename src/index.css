@@ -13,14 +13,17 @@
 }
 
 @layer utilities {
-    .theme-dark {
+  .theme-dark {
       background-color: #1C1919;
-    }
-    
-    .theme-light {
-      background-color: white;
-    }
+      transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
   }
+  
+  .theme-light {
+      background-color: white;
+      transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
+  }
+}
+
 .button-hero{
     @apply rounded-3xl border w-44 px-7 py-2 ;
 }
