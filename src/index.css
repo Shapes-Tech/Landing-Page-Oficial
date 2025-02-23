@@ -23,7 +23,7 @@
       transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
   }
 }
-
+/* Button Hero */
 .button-hero{
     @apply rounded-3xl border w-44 px-7 py-2 ;
 }
@@ -42,7 +42,15 @@
   -webkit-mask-composite: xor;
   mask-composite: exclude;
 }
-/* Key Frames */
+.animate-button {
+  animation: buttonAnimation 7.3s infinite;
+}
+/* Elimina el brillo cuando el tema es light */
+.theme-light .animate-button {
+  animation: buttonAnimation 7.3s infinite;
+  filter: drop-shadow(0px 0px 5px #6FBB03);
+}
+/* Key Frames Button Hero */
 @keyframes buttonAnimation {
   0% { 
     border-color: #6FBB03; 
@@ -66,11 +74,39 @@
   }
 }
 
-.animate-button {
-  animation: buttonAnimation 7.3s infinite;
+/* Shapes Arrow */
+.shapes-arrow {
+  @apply w-8;
+  transition: filter 0.3s ease;
+  filter: brightness(1.5); /* Brillo aumentado */
 }
-/* Elimina el brillo cuando el tema es light */
-.theme-light .animate-button {
-  animation: buttonAnimation 7.3s infinite;
-  filter: drop-shadow(0px 0px 5px #6FBB03);
+
+/* Animación para mostrar las imágenes */
+@keyframes showImage {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  80% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100%{
+    opacity: 0;
+    transform: translateY(0);
+  }
+}
+
+/* Aparece con animación */
+.animate-show {
+  animation: showImage 2s infinite;
+}
+
+/* Agregar retrasos progresivos */
+.delay-200 {
+  animation-delay: 0.2s;
+}
+
+.delay-400 {
+  animation-delay: 0.4s;
 }

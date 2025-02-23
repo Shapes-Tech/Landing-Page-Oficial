@@ -13,7 +13,7 @@ export const NavBar = () => {
     const t = translations[currentLanguage]
   return (
     <header className='font-montserrat flex justify-between items-center px-10 py-5'>
-        <img className='w-32' src={logoAnimado} alt="Shapes Logo" />
+        <img className='w-36' src={logoAnimado} alt="Shapes Logo" />
         <nav className='flex items-center gap-10'>
             <a className={`text-2xl ${textColor}`} href="">{t.nav.services}</a>
             <a className={`text-2xl ${textColor}`} href="">{t.nav.about}</a>
