@@ -25,52 +25,33 @@
 }
 /* Button Hero */
 .button-hero{
-    @apply rounded-3xl border w-44 px-7 py-2 ;
-}
-.button-hero::before {
-  content: "";
-  position: absolute;
-  inset: -3px; /* Asegura que el borde cubra bien */
-  border-radius: inherit;
-  padding: 3px;
-  background: linear-gradient(45deg, #6FBB03, #6B0301, #013882, #6FBB03);
-  background-size: 300% 300%;
-  animation: borderAnimation 5s infinite linear;
-  -webkit-mask: 
-      linear-gradient(#fff 0 0) content-box, 
-      linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
+    @apply rounded-3xl border w-48 py-2 pb-3 text-xl font-light ;
 }
 .animate-button {
-  animation: buttonAnimation 7.3s infinite;
+  animation: buttonAnimation 7.1s infinite;
 }
 /* Elimina el brillo cuando el tema es light */
 .theme-light .animate-button {
-  animation: buttonAnimation 7.3s infinite;
+  animation: buttonAnimation 7.1s infinite;
   filter: drop-shadow(0px 0px 5px #6FBB03);
 }
 /* Key Frames Button Hero */
 @keyframes buttonAnimation {
   0% { 
     border-color: #6FBB03; 
-    color: #6FBB03;
-    filter: drop-shadow(0px 0px 5px #6FBB03);
+    filter: drop-shadow(0px 0px 4px 0 #6FBB03);
   }
-  45% { 
-    border-color: #6B0301; 
-    color: #6B0301;
-    filter: drop-shadow(0px 0px 20px #6B0301) brightness(2.5);
+  55% { 
+    border-color: #FD4441; 
+    filter: drop-shadow(0px 0px 4px 0 #FD4441) brightness(1);
   }
   85% { 
-    border-color: #013882; 
-    color: #013882;
-    filter: drop-shadow(0px 0px 20px #013882) brightness(2.5);
+    border-color: #2782FF; 
+    filter: drop-shadow(0px 0px 4px 0 #2782FF) brightness(1);
   }
   100% { 
     border-color: #6FBB03; 
-    color: #6FBB03;
-    filter: drop-shadow(0px 0px 5px #6FBB03);
+    filter: drop-shadow(0px 0px 4px 0 #6FBB03);
   }
 }
 
@@ -78,7 +59,7 @@
 .shapes-arrow {
   @apply w-8;
   transition: filter 0.3s ease;
-  filter: brightness(1.5); /* Brillo aumentado */
+  filter: brightness(2.5); /* Brillo aumentado */
 }
 
 /* Animación para mostrar las imágenes */

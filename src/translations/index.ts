@@ -1,9 +1,9 @@
 export const translations = {
   es: {
     nav: {
-      services: "Servicios",
-      about: "Sobre Nosotros",
-      contact: "Contacto",
+      services: "servicios",
+      about: "sobre nosotros",
+      contact: "contacto",
     },
     hero: {
       title: "Innovación",
@@ -14,9 +14,9 @@ export const translations = {
   },
   en: {
     nav: {
-      services: "Services",
-      about: "About Us",
-      contact: "Contact",
+      services: "services",
+      about: "about us",
+      contact: "contact",
     },
     hero:{
       title: "Innovation",

@@ -2,11 +2,13 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../store";
 import { setLanguage } from "../../store/languageSlice";
-import Spain from '../../assets/spain.svg'
-import USA from '../../assets/united-states-of-america.svg'
-export const LanguageSwitch = () => {
+
+export const LanguageSwitch: React.FC = () => {
   const dispatch = useDispatch();
   const currentLanguage = useSelector((state: RootState) => state.language.currentLanguage);
+  	const currentColor = useSelector((state: RootState) => state.color.mode)
+  
+  const textColor = currentColor === 'dark' ? 'text-white' : 'text-black' 
 
 	const toggleLanguage = () =>{
 		dispatch(setLanguage(currentLanguage === 'es' ? 'en' : 'es'))
@@ -14,6 +16,6 @@ export const LanguageSwitch = () => {
 
   return (
 	<button onClick={toggleLanguage} >
-    <img className="w-10 cursor-pointer" src={currentLanguage === 'es' ? Spain : USA} />
+		<span className={` cursor-pointer text-xl ${textColor}`}>{currentLanguage === 'es' ? 'es' : 'en'}</span>
 	</button>
 )};

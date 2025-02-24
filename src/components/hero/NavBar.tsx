@@ -12,12 +12,12 @@ export const NavBar = () => {
     const textColor = currentColor === 'dark' ? 'text-white' : 'text-black' 
     const t = translations[currentLanguage]
   return (
-    <header className='font-montserrat flex justify-between items-center px-10 py-5'>
-        <img className='w-36' src={logoAnimado} alt="Shapes Logo" />
+    <header className='font-quicksand flex justify-between items-center px-10 py-5'>
+        <img className='w-28' src={logoAnimado} alt="Shapes Logo" />
         <nav className='flex items-center gap-10'>
-            <a className={`text-2xl ${textColor}`} href="">{t.nav.services}</a>
-            <a className={`text-2xl ${textColor}`} href="">{t.nav.about}</a>
-            <a className={`text-2xl ${textColor}`} href="">{t.nav.contact}</a>
+            <a className={`text-xl ${textColor} font-light`} href="">{t.nav.services}</a>
+            <a className={`text-xl ${textColor} font-light`} href="">{t.nav.about}</a>
+            <a className={`text-xl ${textColor} font-light`} href="">{t.nav.contact}</a>
             <LanguageSwitch />
             <ColorSwitch />
         </nav>

@@ -10,7 +10,7 @@ function App() {
   },[currentColor])
 
   return (
-    <main className='max-w-[1660px] mx-auto'>
+    <main className='max-w-[1900px] mx-auto'>
       <Hero />
     </main>
   )
