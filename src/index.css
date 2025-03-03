@@ -9,7 +9,10 @@
     --color-title-hero: #FFFFFF;
     --color-button-green: #6FBB03;
     --color-button-red: #6B0301;
-    --color-button-blue: #013882;
+    --color-button-blue: #013882; 
+    --color-text-red: #FD4441; 
+    --color-text-green: #6FBB03; 
+    --color-text-blue: #2782FF; 
 }
 
 @layer utilities {
@@ -23,6 +26,51 @@
       transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
   }
 }
+
+/* Text colors */
+.text-red{
+  font-size: 1.5rem;
+  color: var(--color-text-red)
+}
+.text-green{
+  font-size: 1.5rem;
+  color: var(--color-text-green)
+}
+.text-blue{
+  font-size: 1.5rem;
+  color: var(--color-text-blue)
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.text-red, .text-green, .text-blue, .text-animation {
+  font-size: 1.5rem;
+  font-weight: 400;
+  opacity: 0;
+  animation: fadeIn 4s ease-in-out forwards;
+}
+
+.text-red, .text-animation-design {
+  animation-delay: 0.5s;
+}
+
+.text-green, .text-animation-development {
+  animation-delay: 2s; /* Aparece 1 segundo después */
+}
+
+.text-blue, .text-animation-ai {
+  animation-delay: 3.5s; /* Aparece 2 segundos después */
+}
+
+
+
 /* Button Hero */
 .button-hero{
     @apply rounded-3xl border w-48 py-2 pb-3 text-xl font-light ;

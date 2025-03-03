@@ -6,7 +6,7 @@ import { useSelector } from 'react-redux'
 import { RootState } from '../../store'
 import { ColorSwitch } from './ColorSwitch'
 
-export const NavBar = () => {
+export const NavBar: React.FC = () => {
     const currentLanguage = useSelector((state: RootState) => state.language.currentLanguage)
     const currentColor = useSelector((state: RootState) => state.color.mode)
     const textColor = currentColor === 'dark' ? 'text-white' : 'text-black' 
