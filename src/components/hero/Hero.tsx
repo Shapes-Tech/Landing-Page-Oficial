@@ -4,7 +4,6 @@ import shapes from "../../assets/shapes.gif";
 import { translations } from "../../translations";
 import { useSelector } from "react-redux";
 import { RootState } from "../../store";
-import { ShapesArrow } from "./ShapesArrow";
 export const Hero: React.FC = () => {
   const currentLanguage = useSelector(
     (state: RootState) => state.language.currentLanguage
@@ -38,8 +37,6 @@ export const Hero: React.FC = () => {
           </div>
         </div>
       </div>
-
-{/*       <ShapesArrow /> */}
     </section>
   );
 };
