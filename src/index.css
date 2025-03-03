@@ -25,6 +25,15 @@
       background-color: white;
       transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
   }
+  
+  /* Versiones sin transición para el cargado inicial */
+  .theme-dark-no-transition {
+      background-color: #1C1919;
+  }
+  
+  .theme-light-no-transition {
+      background-color: white;
+  }
 }
 
 /* Text colors */
