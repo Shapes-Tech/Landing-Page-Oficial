@@ -21,6 +21,7 @@ export const AboutUs: React.FC = () => {
       github:'',
       borderColor: "border-[#FD4441]",
       textColor: "text-[#FD4441]",
+      shape: <div className='w-40 h-40 bg-[#FD4441] rounded-full opacity-25 transition-all duration-300 group-hover:w-full group-hover:h-full'></div>
     },
     {
       name:'nacho',
@@ -32,6 +33,7 @@ export const AboutUs: React.FC = () => {
       github:'',
       borderColor: "border-[#6FBB03]",
       textColor: "text-[#6FBB03]",
+      shape: <div className='w-40 h-40 bg-[#6FBB03] opacity-25 transition-all duration-300 group-hover:w-full group-hover:h-full'></div>
     },
     {
       name:'leonardo',
@@ -43,8 +45,10 @@ export const AboutUs: React.FC = () => {
       github:'',
       borderColor: "border-[#2782FF]",
       textColor: "text-[#2782FF]",
+      shape: <div className='w-0 h-0 border-l-[40px] border-r-[40px] border-b-[70px] border-transparent border-b-[#2782FF] opacity-25 transition-all duration-300 group-hover:w-full group-hover:h-full '></div>
     }
   ]
+  
   return (
     <section className='text-white w-[80%] mx-auto font-quicksand pb-6 mt-16'>
       <h1 className='text-white text-5xl font-extralight'>{t.aboutUs.title}</h1>
@@ -62,6 +66,7 @@ export const AboutUs: React.FC = () => {
           description={data.description}
           linkedin={data.linkedin}
           github={data.github}
+          shape={data.shape}
           />
         ))}
       </div>
