@@ -13,6 +13,7 @@ export const Services: React.FC = () => {
   const t = translations[currentLanguage];
   const dataCards = [
     {
+      id:1,
       titleOne: "web",
       titleTwo: "design",
       description: t.services.design,
@@ -22,6 +23,7 @@ export const Services: React.FC = () => {
       textColor: "text-[#FD4441]",
     },
     {
+      id:2,
       titleOne: "web",
       titleTwo: "development",
       description: t.services.development,
@@ -31,6 +33,7 @@ export const Services: React.FC = () => {
       textColor: "text-[#6FBB03]",
     },
     {
+      id:3,
       titleOne: "ai",
       titleTwo: "applications",
       description: t.services.ai,
@@ -48,6 +51,8 @@ export const Services: React.FC = () => {
       <div className="flex items-center gap-5">
         {dataCards.map((card) => (
           <Cards
+            key={card.id}
+            id= {card.id}
             titleOne={card.titleOne}
             titleTwo={card.titleTwo}
             textColor={card.textColor}
