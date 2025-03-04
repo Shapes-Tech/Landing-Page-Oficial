@@ -17,6 +17,13 @@ export const translations = {
       development:"Sitios web modernos y optimizados con las últimas tecnologías.",
       ai:"Soluciones web inteligentes potenciadas por inteligencia artificial.",
       learnMore:"Saber más"
+    },
+    aboutUs:{
+      title: "Conoce a los expertos",
+      subtitle:"Un equipo apasionado por la tecnología y comprometido con la excelencia.",
+      andyDescription:"Especialista en crear experiencias digitales intuitivas y atractivas que cautivan a los usuarios.",
+      nachoDescription:"Experto en desarrollo frontend con pasión por crear interfaces modernas y responsivas.",
+      leoDescription:"Arquitecto de soluciones backend robustas y escalables que potencian aplicaciones modernas."
     }
   },
   en: {
@@ -36,6 +43,13 @@ export const translations = {
       development:"Modern and optimized websites with the latest technology",
       ai:"Smart web solutions powered by artificial intelligence.",
       learnMore:"Learn more"
+    },
+    aboutUs:{
+      title: "Meet the experts",
+      subtitle:"A team passionate about technology and committed to excellence.",
+      andyDescription:"Specialist in creating intuitive and engaging digital experiences that captivate users.",
+      nachoDescription:"Frontend development expert with a passion for creating modern, responsive interfaces.",
+      leoDescription:"Architect of robust and scalable backend solutions that power modern applications."
     }
   },
 };

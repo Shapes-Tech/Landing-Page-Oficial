@@ -21,7 +21,7 @@ const Cards: React.FC<CardsProps> = ({titleOne, titleTwo, textColor, description
   return (
     <>
       <div className={`flex flex-col gap-4 items-start p-5 border ${borderColor} rounded-3xl mt-10`}>
-        <img className="w-32" src={icon} alt="Logo de Design" />
+        <img className="w-32" src={icon} alt="Icono de la tarjeta" />
         <h1 className={`${textColor} text-2xl`}>
           {titleOne}<span className="text-white">{titleTwo}</span>
         </h1>
