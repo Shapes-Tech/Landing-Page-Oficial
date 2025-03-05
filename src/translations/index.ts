@@ -24,7 +24,17 @@ export const translations = {
       andyDescription:"Especialista en crear experiencias digitales intuitivas y atractivas que cautivan a los usuarios.",
       nachoDescription:"Experto en desarrollo frontend con pasión por crear interfaces modernas y responsivas.",
       leoDescription:"Arquitecto de soluciones backend robustas y escalables que potencian aplicaciones modernas."
-    }
+    },
+    contactUs:{
+      title:'Contactanos',
+      subtitle:'Descubre cómo podemos ayudarte a construir tu presencia digital.',
+      placeholder:{
+        name:'Nombre',
+        email:'Email',
+        message:'Mensaje'
+      },
+      send:'Enviar'
+    },
   },
   en: {
     nav: {
@@ -50,6 +60,16 @@ export const translations = {
       andyDescription:"Specialist in creating intuitive and engaging digital experiences that captivate users.",
       nachoDescription:"Frontend development expert with a passion for creating modern, responsive interfaces.",
       leoDescription:"Architect of robust and scalable backend solutions that power modern applications."
-    }
+    },
+    contactUs:{
+      title:'Contact us',
+      subtitle:'Find out how we can help you build your digital presence.',
+      placeholder:{
+        name:'Name',
+        email:'Email',
+        message:'Message'
+      },
+      send:'Send'
+    },
   },
 };

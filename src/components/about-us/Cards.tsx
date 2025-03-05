@@ -25,18 +25,24 @@ const Cards: React.FC<AboutUsProps> = ({
   github,
   borderColor,
   textColor,
-  shape,
+/*   shape, */
 }) => {
   return (
     <div
-      className={` border ${borderColor} rounded-2xl flex flex-col p-5 font-quicksand overflow-hidden`}
+      className={`border ${borderColor} rounded-2xl flex flex-col p-5 font-quicksand overflow-hidden relative`}
     >
-      <img
-        className="relative w-[30rem] h-[25rem] object-cover rounded-2xl mx-auto grayscale"
-        src={img}
-        alt="Imagen del equipo"
-      />
-      <div className="absolute">{shape}</div>
+      <div className="relative group">
+        <img
+          className="relative w-[30rem] h-[25rem] object-cover rounded-2xl mx-auto grayscale transition-all duration-300"
+          src={img}
+          alt="Imagen del equipo"
+        />
+        {/* Shape */}
+{/*         <div className="absolute top-0 left-0 w-full h-full group-hover:scale-50 transition-all duration-300">
+          {shape}
+        </div> */}
+      </div>
+
       <p className={`text-2xl font-light ${textColor} mt-5`}>
         {name}
         <span className="text-white">{lastName}</span>
