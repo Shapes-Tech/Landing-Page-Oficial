@@ -35,6 +35,9 @@ export const translations = {
       },
       send:'Enviar'
     },
+    footer:{
+      copyRight:'© 2025 Shapes. Todos los derechos reservados.'
+    }
   },
   en: {
     nav: {
@@ -71,5 +74,8 @@ export const translations = {
       },
       send:'Send'
     },
+    footer:{
+      copyRight:'© 2025 Shapes. All rights reserved.'
+    }
   },
 };
