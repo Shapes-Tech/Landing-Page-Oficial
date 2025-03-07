@@ -6,7 +6,7 @@ import { ContactUs } from '../components/contact-us/ContactUs'
 import Shapes from '../components/shapes/Shapes'
 import Footer from '../components/footer/Footer'
 
-const MainPage = () => {
+const MainPage: React.FC = () => {
   return (
     <>
       <Hero />

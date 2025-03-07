@@ -1,5 +1,5 @@
 import React from 'react'
-import Logo from '../../assets/Logo Animado.gif'
+import Logo from '../../assets/Logo Animado Negro.gif'
 import { FaInstagram, FaLinkedin } from 'react-icons/fa6'
 import { useSelector } from 'react-redux'
 import { translations } from '../../translations'

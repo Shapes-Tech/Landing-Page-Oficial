@@ -1,6 +1,7 @@
 import React from "react";
 import { NavBar } from "./NavBar";
-import shapes from "../../assets/shapes.gif";
+import shapesBlack from "../../assets/shapes.gif";
+import shapesWhite from "../../assets/shapes light.gif";
 import { translations } from "../../translations";
 import { useSelector } from "react-redux";
 import { RootState } from "../../store";
@@ -19,7 +20,7 @@ export const Hero: React.FC = () => {
       <NavBar />
       <div className="flex justify-center">
         <div className="flex justify-center gap-14 mt-10 w-[80%]">
-          <img className="mt-10" src={shapes} />
+          <img className="mt-10" src={currentColor === 'dark' ? shapesBlack : shapesWhite} />
           <div className="flex flex-col">
             <h1
               className={`font-quicksand ${titleColor} text-[15rem] leading-tight tracking-tighter font-extralight`}

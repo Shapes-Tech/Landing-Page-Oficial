@@ -1,5 +1,6 @@
 import React from 'react'
-import logoAnimado from '../../assets/Logo Animado.gif'
+import logoAnimadoNegro from '../../assets/Logo Animado Negro.gif'
+import logoAnimadoBlanco from '../../assets/Logo Animado Blanco.gif'
 import { LanguageSwitch } from './LanguageSwitch'
 import { translations } from '../../translations'
 import { useSelector } from 'react-redux'
@@ -13,7 +14,7 @@ export const NavBar: React.FC = () => {
     const t = translations[currentLanguage]
   return (
     <header className='font-quicksand flex justify-between items-center px-10 py-5'>
-        <img className='w-28' src={logoAnimado} alt="Shapes Logo" />
+        <img className='w-28' src={currentColor === "dark" ? logoAnimadoNegro : logoAnimadoBlanco} alt="Shapes Logo" />
         <nav className='flex items-center gap-10'>
             <a className={`text-xl ${textColor} font-light`} href="">{t.nav.services}</a>
             <a className={`text-xl ${textColor} font-light`} href="">{t.nav.about}</a>
