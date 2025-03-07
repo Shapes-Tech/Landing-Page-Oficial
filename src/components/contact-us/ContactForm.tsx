@@ -13,6 +13,9 @@ const ContactForm: React.FC = () => {
   const currentLanguage = useSelector(
     (state: RootState) => state.language.currentLanguage
   );
+  const currentColor = useSelector((state: RootState) => state.color.mode)
+  const textColor = currentColor === 'dark' ? 'text-white' : 'text-black'
+  const borderColor = currentColor === 'dark' ? 'border-white' : 'border-black'
   const t = translations[currentLanguage];
   const [formData, setFormData] = useState<IFormData>({
     name: "",
@@ -45,7 +48,7 @@ const ContactForm: React.FC = () => {
       className="flex flex-col gap-6 mt-7 border w-[80%] border-slate-400 rounded-3xl p-7 font-quicksand"
     >
       <input
-        className="border border-white rounded-2xl p-3 text-white"
+        className={`border ${borderColor} rounded-2xl p-3 ${textColor}`}
         name="name"
         value={formData.name}
         onChange={handleChange}
@@ -53,7 +56,7 @@ const ContactForm: React.FC = () => {
         placeholder={t.contactUs.placeholder.name}
       />
       <input
-        className="border border-white rounded-2xl p-3 text-white"
+        className={`border ${borderColor} rounded-2xl p-3 ${textColor}`}
         value={formData.email}
         onChange={handleChange}
         name="email"
@@ -61,7 +64,7 @@ const ContactForm: React.FC = () => {
         placeholder={t.contactUs.placeholder.email}
       />
       <textarea
-        className="border border-white rounded-2xl p-3 text-white resize-none"
+        className={`border ${borderColor} rounded-2xl p-3 ${textColor} resize-none`}
         value={formData.message}
         onChange={handleChange}
         name="message"
@@ -69,7 +72,7 @@ const ContactForm: React.FC = () => {
         placeholder={t.contactUs.placeholder.message}
       ></textarea>
       <button
-        className="text-white text-2xl border border-[#6FBB03] py-3 px-28 rounded-4xl w-fit cursor-pointer "
+        className={`${textColor} text-2xl border border-[#6FBB03] py-3 px-28 rounded-4xl w-fit cursor-pointer`}
         type="submit"
       >
         {t.contactUs.send}

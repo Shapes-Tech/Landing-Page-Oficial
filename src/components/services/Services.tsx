@@ -10,6 +10,8 @@ export const Services: React.FC = () => {
   const currentLanguage = useSelector(
     (state: RootState) => state.language.currentLanguage
   );
+  const currentColor = useSelector((state: RootState) => state.color.mode)
+  const textColor = currentColor === 'dark' ? 'text-white' : 'text-dark'
   const t = translations[currentLanguage];
   const dataCards = [
     {
@@ -44,8 +46,8 @@ export const Services: React.FC = () => {
     },
   ];
   return (
-    <section className="flex flex-col items-start text-white w-[80%] mx-auto mt-24 mb-10 font-quicksand font-extralight">
-      <h1 className=" text-6xl font-extralight w-[50%] leading-tight tracking-tighter">
+    <section className={`${textColor} flex flex-col items-start w-[80%] mx-auto mt-24 mb-10 font-quicksand font-extralight`}>
+      <h1 className="text-6xl font-extralight w-[50%] leading-tight tracking-tighter">
         {t.services.title}
       </h1>
       <div className="flex items-center gap-5">

@@ -9,6 +9,8 @@ import Cards from './Cards'
 
 export const AboutUs: React.FC = () => {
   const currentLanguage = useSelector((state:RootState) => state.language.currentLanguage)
+  const currentColor = useSelector((state: RootState) => state.color.mode)
+  const textColor = currentColor === 'dark' ? 'text-white' : 'text-black'
   const t = translations[currentLanguage]
   const aboutUsData = [
     {
@@ -57,9 +59,9 @@ export const AboutUs: React.FC = () => {
   
   
   return (
-    <section className='text-white w-[80%] mx-auto font-quicksand pb-6 mt-16'>
-      <h1 className='text-white text-5xl font-extralight'>{t.aboutUs.title}</h1>
-      <h2 className='text-white text-4xl font-light mt-3'>{t.aboutUs.subtitle}</h2>
+    <section className={`${textColor} w-[80%] mx-auto font-quicksand pb-6 mt-16`}>
+      <h1 className=' text-5xl font-extralight'>{t.aboutUs.title}</h1>
+      <h2 className=' text-4xl font-light mt-3'>{t.aboutUs.subtitle}</h2>
       <div className="flex items-center justify-between gap-5 mt-10">
         {aboutUsData.map((data,index) =>(
           <Cards 

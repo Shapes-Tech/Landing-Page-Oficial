@@ -12,7 +12,7 @@ export const Hero: React.FC = () => {
   const currentColor = useSelector((state: RootState) => state.color.mode);
   const t = translations[currentLanguage];
   const titleColor =
-    currentColor === "dark" ? "text-white opacity-40" : "text-black opacity-90";
+    currentColor === "dark" ? "text-white opacity-40" : "text-[#959595] ";
   const descriptionColor =
     currentColor === "dark" ? "text-white" : "text-black";
   return (
@@ -32,7 +32,7 @@ export const Hero: React.FC = () => {
             >
               {t.hero.description}
             </p>
-            <button className="button-hero animate-button font-medium mt-16 cursor-pointer text-white">
+            <button className={`${descriptionColor} button-hero animate-button font-medium mt-16 cursor-pointer`}>
               {t.hero.button}
             </button>
           </div>

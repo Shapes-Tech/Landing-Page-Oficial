@@ -1,6 +1,8 @@
 import React from "react";
 import { FaLinkedin } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa";
+import { useSelector } from "react-redux";
+import { RootState } from "../../store";
 
 interface AboutUsProps {
   name: string;
@@ -27,6 +29,8 @@ const Cards: React.FC<AboutUsProps> = ({
   textColor,
 /*   shape, */
 }) => {
+  const currentColor = useSelector((state: RootState) => state.color.mode)
+  const textColorDescription = currentColor === 'dark' ? 'text-white' : 'text-black'
   return (
     <div
       className={`border ${borderColor} rounded-2xl flex flex-col p-5 font-quicksand overflow-hidden relative`}
@@ -45,10 +49,10 @@ const Cards: React.FC<AboutUsProps> = ({
 
       <p className={`text-2xl font-light ${textColor} mt-5`}>
         {name}
-        <span className="text-white">{lastName}</span>
+        <span className={textColorDescription}>{lastName}</span>
       </p>
-      <p className="text-white font-bold text-xl">{position}</p>
-      <p className="text-white font-light text-xl mt-5">{description}</p>
+      <p className={`${textColorDescription} font-bold text-xl`}>{position}</p>
+      <p className={` ${textColorDescription} font-light text-xl mt-5`}>{description}</p>
       <div className="flex items-center gap-2 mt-5">
         <a className="text-4xl" href={linkedin}>
           <FaLinkedin />
