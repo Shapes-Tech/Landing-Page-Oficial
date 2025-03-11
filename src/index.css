@@ -17,6 +17,14 @@ body{
     --color-text-red: #FD4441; 
     --color-text-green: #6FBB03; 
     --color-text-blue: #2782FF; 
+
+    /* Breakpoints Hero */
+    --breakpoint-hero-text-xbig: 1750px;
+    --breakpoint-hero-img-xbig: 1750px;
+    --breakpoint-hero-text-big: 1600px;
+    --breakpoint-hero-img-big: 1600px;
+    --breakpoint-hero-text-lg: 1500px;
+    --breakpoint-hero-img-lg: 1500px;
 }
 
 @layer utilities {

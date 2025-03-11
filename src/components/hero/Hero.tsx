@@ -20,15 +20,15 @@ export const Hero: React.FC = () => {
       <NavBar />
       <div className="flex justify-center">
         <div className="flex justify-center gap-14 mt-10 w-[80%]">
-          <img className="mt-10" src={currentColor === 'dark' ? shapesBlack : shapesWhite} />
+          <img className="mt-10 w-[23rem] h-[23rem] hero-img-lg:w-[26rem] hero-img-lg:h-[26rem] hero-img-big:w-[30rem] hero-img-big:h-[30rem] hero-img-xbig:w-[35rem] hero-img-xbig:h-[35rem]" src={currentColor === 'dark' ? shapesBlack : shapesWhite} />
           <div className="flex flex-col">
             <h1
-              className={`font-quicksand ${titleColor} text-[15rem] leading-tight tracking-tighter font-extralight`}
+              className={`font-quicksand ${titleColor} text-[10rem] hero-text-lg:text-[12rem] hero-text-big:text-[13rem] hero-text-xbig:text-[15rem] leading-tight tracking-tighter font-extralight`}
             >
               {t.hero.title}
             </h1>
             <p
-              className={`font-quicksand ${descriptionColor} leading-tight text-[2.5rem] font-extralight`}
+              className={`font-quicksand ${descriptionColor} leading-tight text-[1.5rem] hero-text-lg:text-[2rem] hero-text-xbig:text-[2.5rem] font-extralight`}
             >
               {t.hero.description}
             </p>
