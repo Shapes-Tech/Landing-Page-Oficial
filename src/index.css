@@ -42,6 +42,8 @@ body{
     --breakpoint-aboutUs-img-big: 1600px;
     --breakpoint-aboutUs-text-lg: 1500px;
     --breakpoint-aboutUs-img-lg: 1500px;
+    --breakpoint-aboutUs-text-md: 1300px;
+    --breakpoint-aboutUs-img-md: 1300px;
 }
 
 @layer utilities {
