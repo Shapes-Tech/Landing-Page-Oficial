@@ -8,6 +8,7 @@ body{
     /* Fuentes */
     --font-quicksand: "Quicksand", serif;
     --font-montserrat: "Montserrat", serif; 
+    
     /* Colores */
     --black-bg:#1C1919;
     --color-title-hero: #FFFFFF;
@@ -33,6 +34,14 @@ body{
     --breakpoint-services-img-big: 1600px;
     --breakpoint-services-text-lg: 1500px;
     --breakpoint-services-img-lg: 1500px;
+    
+    /* Breakpoint About Us */
+    --breakpoint-aboutUs-text-xbig: 1750px;
+    --breakpoint-aboutUs-img-xbig: 1750px;
+    --breakpoint-aboutUs-text-big: 1600px;
+    --breakpoint-aboutUs-img-big: 1600px;
+    --breakpoint-aboutUs-text-lg: 1500px;
+    --breakpoint-aboutUs-img-lg: 1500px;
 }
 
 @layer utilities {

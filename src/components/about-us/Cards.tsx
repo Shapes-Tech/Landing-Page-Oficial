@@ -14,7 +14,7 @@ interface AboutUsProps {
   github: string;
   borderColor: string;
   textColor: string;
-  shape: any;
+/*   shape: any; */
 }
 
 const Cards: React.FC<AboutUsProps> = ({
