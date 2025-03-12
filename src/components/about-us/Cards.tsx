@@ -33,11 +33,11 @@ const Cards: React.FC<AboutUsProps> = ({
   const textColorDescription = currentColor === 'dark' ? 'text-white' : 'text-black'
   return (
     <div
-      className={`border ${borderColor} rounded-2xl h-[44rem] aboutUs-img-md:h-[43rem] aboutUs-img-xbig:h-[41rem] flex flex-col p-5 font-quicksand overflow-hidden relative`}
+      className={`border ${borderColor} rounded-2xl h-[39rem] aboutUs-img-md:h-[43rem] aboutUs-img-xbig:h-[41rem] flex flex-col p-5 font-quicksand overflow-hidden relative`}
     >
       <div className="relative group">
         <img
-          className="relative w-[30rem] h-[25rem] object-cover rounded-2xl mx-auto grayscale transition-all duration-300"
+          className="relative w-[30rem] h-[20rem] aboutUs-img-md:h-[25rem] object-cover rounded-2xl mx-auto grayscale transition-all duration-300"
           src={img}
           alt="Imagen del equipo"
         />

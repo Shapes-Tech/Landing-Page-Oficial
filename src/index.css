@@ -26,6 +26,8 @@ body{
     --breakpoint-hero-img-big: 1600px;
     --breakpoint-hero-text-lg: 1500px;
     --breakpoint-hero-img-lg: 1500px;
+    --breakpoint-hero-text-md: 1300px;
+    --breakpoint-hero-img-md: 1300px;
 
     /* Breakpoint Services */
     --breakpoint-services-text-xbig: 1750px;
@@ -34,6 +36,8 @@ body{
     --breakpoint-services-img-big: 1600px;
     --breakpoint-services-text-lg: 1500px;
     --breakpoint-services-img-lg: 1500px;
+    --breakpoint-services-text-md: 1300px;
+    --breakpoint-services-img-md: 1300px;
     
     /* Breakpoint About Us */
     --breakpoint-aboutUs-text-xbig: 1750px;
@@ -44,6 +48,19 @@ body{
     --breakpoint-aboutUs-img-lg: 1500px;
     --breakpoint-aboutUs-text-md: 1300px;
     --breakpoint-aboutUs-img-md: 1300px;
+
+    /* Breakpoint Contact-us */
+    --breakpoint-contactUs-text-xbig: 1750px;
+    --breakpoint-contactUs-img-xbig: 1750px;
+    --breakpoint-contactUs-text-big: 1600px;
+    --breakpoint-contactUs-img-big: 1600px;
+    --breakpoint-contactUs-text-lg: 1500px;
+    --breakpoint-contactUs-img-lg: 1500px;
+    --breakpoint-contactUs-text-md: 1300px;
+    --breakpoint-contactUs-img-md: 1300px;
+
+    /* Breakpoint Shapes */
+    --breakpoint-shapes-img-md: 1300px;
 }
 
 @layer utilities {
