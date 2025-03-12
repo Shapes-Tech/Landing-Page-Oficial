@@ -25,6 +25,14 @@ body{
     --breakpoint-hero-img-big: 1600px;
     --breakpoint-hero-text-lg: 1500px;
     --breakpoint-hero-img-lg: 1500px;
+
+    /* Breakpoint Services */
+    --breakpoint-services-text-xbig: 1750px;
+    --breakpoint-services-img-xbig: 1750px;
+    --breakpoint-services-text-big: 1600px;
+    --breakpoint-services-img-big: 1600px;
+    --breakpoint-services-text-lg: 1500px;
+    --breakpoint-services-img-lg: 1500px;
 }
 
 @layer utilities {

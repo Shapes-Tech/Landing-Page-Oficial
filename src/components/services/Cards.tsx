@@ -25,12 +25,12 @@ const Cards: React.FC<CardsProps> = ({titleOne, titleTwo, textColor, description
   }
   return (
     <>
-      <div className={`flex flex-col gap-4 items-start p-5 border ${borderColor} rounded-3xl mt-10`}>
-        <img className="w-32" src={icon} alt="Icono de la tarjeta" />
+      <div className={`flex flex-col gap-4 items-start p-5 border ${borderColor} rounded-3xl mt-10 h-[23.5rem]`}>
+        <img className=" w-28 services-img-xbig:w-32" src={icon} alt="Icono de la tarjeta" />
         <h1 className={`${textColor} text-2xl`}>
           {titleOne}<span className={positionColor}>{titleTwo}</span>
         </h1>
-        <p className="font-quicksand font-extralight text-2xl w-[90%]">
+        <p className="font-quicksand font-extralight text-[1.3rem] w-[95%] services-text-big:text-2xl services-text-big: w-[90%]">
           {description}
         </p>
         <button onClick={handleModal} className={`flex items-center gap-3 border ${borderColorButton} rounded-full p-2 cursor-pointer`}>
