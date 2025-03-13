@@ -20,19 +20,19 @@ export const Hero: React.FC = () => {
       <NavBar />
       <div className="flex justify-center">
         <div className="flex justify-center gap-14 mt-10 w-[80%]">
-          <img className="mt-10 w-[23rem] h-[23rem] hero-img-lg:w-[26rem] hero-img-lg:h-[26rem] hero-img-big:w-[30rem] hero-img-big:h-[30rem] hero-img-xbig:w-[35rem] hero-img-xbig:h-[35rem]" src={currentColor === 'dark' ? shapesBlack : shapesWhite} />
+          <img className="mt-4 w-[20rem] h-[20rem]   hero-img-lg:w-[23rem] hero-text-lg:h-[23rem] hero-img-big:w-[26rem] hero-img-big:h-[26rem] hero-img-xbig:w-[30rem] hero-img-xbig:h-[30rem] hero-img-xlbig:w-[35rem] hero-img-xlbig:h-[35rem]" src={currentColor === 'dark' ? shapesBlack : shapesWhite} />
           <div className="flex flex-col">
             <h1
-              className={`font-quicksand ${titleColor} text-[10rem] hero-text-lg:text-[12rem] hero-text-big:text-[13rem] hero-text-xbig:text-[15rem] leading-tight tracking-tighter font-extralight`}
+              className={`font-quicksand ${titleColor} text-[8.3rem] hero-text-lg:text-[10rem] hero-text-big:text-[12rem] hero-text-xbig:text-[13rem] hero-text-xlbig:text-[15rem] leading-tight tracking-tighter font-extralight`}
             >
               {t.hero.title}
             </h1>
             <p
-              className={`font-quicksand ${descriptionColor} leading-tight text-[1.5rem] hero-text-lg:text-[2rem] hero-text-xbig:text-[2.5rem] font-extralight`}
+              className={`font-quicksand ${descriptionColor} leading-tight text-[1.2rem] hero-text-lg:text-[1.5rem] hero-text-big:text-[2rem] hero-text-xlbig:text-[2.5rem] font-extralight`}
             >
               {t.hero.description}
             </p>
-            <button className={`${descriptionColor} button-hero animate-button font-medium mt-16 cursor-pointer`}>
+            <button className={`${descriptionColor} button-hero animate-button font-medium mt-12 hero-text-lg:mt-16 hero-text-lg:text-[1.5rem] cursor-pointer`}>
               {t.hero.button}
             </button>
           </div>

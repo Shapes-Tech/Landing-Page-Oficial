@@ -61,7 +61,7 @@ export const AboutUs: React.FC = () => {
   return (
     <section className={`${textColor} w-[80%] mx-auto font-quicksand pb-6 mt-16`}>
       <h1 className='text-5xl font-extralight'>{t.aboutUs.title}</h1>
-      <h2 className=' text-[1.4rem] aboutUs-text-lg:text-[1.6rem] aboutUs-text-big:text-3xl aboutUs-text-xbig:text-4xl font-light mt-3'>{t.aboutUs.subtitle}</h2>
+      <h2 className=' text-[1.4rem] aboutUs-text-big:text-[1.6rem] aboutUs-text-xbig:text-3xl aboutUs-text-xlbig:text-4xl font-light mt-3'>{t.aboutUs.subtitle}</h2>
       <div className="flex items-center justify-between gap-5 mt-10">
         {aboutUsData.map((data,index) =>(
           <Cards 

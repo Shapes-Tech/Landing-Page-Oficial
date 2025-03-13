@@ -33,11 +33,11 @@ const Cards: React.FC<AboutUsProps> = ({
   const textColorDescription = currentColor === 'dark' ? 'text-white' : 'text-black'
   return (
     <div
-      className={`border ${borderColor} rounded-2xl h-[39rem] aboutUs-img-md:h-[43rem] aboutUs-img-xbig:h-[41rem] flex flex-col p-5 font-quicksand overflow-hidden relative`}
+      className={`border ${borderColor} rounded-2xl h-[39rem] aboutUs-img-lg:h-[43rem] aboutUs-img-xlbig:h-[41rem] flex flex-col p-5 font-quicksand overflow-hidden relative`}
     >
       <div className="relative group">
         <img
-          className="relative w-[30rem] h-[20rem] aboutUs-img-md:h-[25rem] object-cover rounded-2xl mx-auto grayscale transition-all duration-300"
+          className="relative w-[30rem] h-[20rem] aboutUs-img-lg:h-[25rem] object-cover rounded-2xl mx-auto grayscale transition-all duration-300"
           src={img}
           alt="Imagen del equipo"
         />
@@ -51,8 +51,8 @@ const Cards: React.FC<AboutUsProps> = ({
         {name}
         <span className={textColorDescription}>{lastName}</span>
       </p>
-      <p className={`${textColorDescription} font-bold text-base aboutUs-text-lg:text-lg aboutUs-text-big:text-xl`}>{position}</p>
-      <p className={` ${textColorDescription} font-light text-lg aboutUs-text-big:text-xl mt-5`}>{description}</p>
+      <p className={`${textColorDescription} font-bold text-base aboutUs-text-big:text-big aboutUs-text-xbig:text-xl`}>{position}</p>
+      <p className={` ${textColorDescription} font-light text-big aboutUs-text-xbig:text-xl mt-5`}>{description}</p>
       <div className="flex items-center gap-2 mt-5">
         <a className="text-4xl" href={linkedin}>
           <FaLinkedin />

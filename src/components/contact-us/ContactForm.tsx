@@ -72,7 +72,7 @@ const ContactForm: React.FC = () => {
         placeholder={t.contactUs.placeholder.message}
       ></textarea>
       <button
-        className={`${textColor} text-[1.4rem] contactUs-text-lg:text-2xl border border-[#6FBB03] py-2 contactUs-text-lg:py-3 px-20 contactUs-text-lg:px-28 rounded-4xl w-fit cursor-pointer`}
+        className={`${textColor} text-[1.4rem] contactUs-text-big:text-2xl border border-[#6FBB03] py-2 contactUs-text-big:py-3 px-20 contactUs-text-big:px-28 rounded-4xl w-fit cursor-pointer`}
         type="submit"
       >
         {t.contactUs.send}
