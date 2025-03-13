@@ -4,6 +4,7 @@ import Modal from "./Modal";
 import { useSelector } from "react-redux";
 import { RootState } from "../../store";
 import ArrowWhite from '../../assets/Arrow White.png'
+import ArrowBlack from '../../assets/Arrow Black.png'
 
 interface CardsProps{
   id: number;
@@ -37,7 +38,7 @@ const Cards: React.FC<CardsProps> = ({titleOne, titleTwo, textColor, description
         <button onClick={handleModal} className={`flex items-center gap-3 border ${borderColorButton} rounded-full p-2 cursor-pointer`}>
           {learnMore}{" "}
           <span className="mt-[0.2rem]">
-            <img src={ArrowWhite} alt="" />{" "}
+            <img src={currentColor === 'dark' ? ArrowWhite : ArrowBlack} alt="" />{" "}
           </span>
         </button>
       </div>

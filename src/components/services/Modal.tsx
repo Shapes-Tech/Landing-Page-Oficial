@@ -41,7 +41,7 @@ const Modal: React.FC<ModalProps> = ({handleModal, id}) => {
   },[id])
 
   return (
-    <div onClick={handleModal} className="fixed top-0 left-0 w-screen h-screen bg-black/50 backdrop-blur-lg flex items-center justify-center">
+    <div onClick={handleModal} className="fixed z-10 top-0 left-0 w-screen h-screen bg-black/50 backdrop-blur-lg flex items-center justify-center">
       <div className={`border ${modal.borderColor} rounded-2xl w-[80%] h-[80%] p-5`}>
         <button className='absolute right-56 text-2xl cursor-pointer' onClick={handleModal}>X</button>
         <h1 className={modal.textColor}>{modal.title}</h1>

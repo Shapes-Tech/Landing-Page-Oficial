@@ -18,6 +18,9 @@ body{
     --color-text-red: #FD4441; 
     --color-text-green: #6FBB03; 
     --color-text-blue: #2782FF; 
+    
+    /* Breakpoits Header */
+    --breakpoint-header-desktop: 1024px;
 
     /* Breakpoints Hero */
     --breakpoint-hero-text-xlbig: 1750px;
