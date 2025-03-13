@@ -33,7 +33,7 @@ const Cards: React.FC<AboutUsProps> = ({
   const textColorDescription = currentColor === 'dark' ? 'text-white' : 'text-black'
   return (
     <div
-      className={`border ${borderColor} rounded-2xl h-[34rem] aboutUs-text-midLg:h-[32rem] aboutUs-img-lg:h-[42rem] aboutUs-img-xlbig:h-[41rem] flex flex-col p-5 font-quicksand overflow-hidden relative`}
+      className={`border ${borderColor} max-w-[37rem] w-full rounded-2xl h-[34rem] aboutUs-text-midLg:h-[32rem] aboutUs-img-lg:h-[42rem] aboutUs-img-xlbig:h-[41rem] flex flex-col p-5 font-quicksand overflow-hidden relative`}
     >
       <div className="relative group">
         <img
@@ -52,7 +52,7 @@ const Cards: React.FC<AboutUsProps> = ({
         <span className={textColorDescription}>{lastName}</span>
       </p>
       <p className={`${textColorDescription} font-bold text-[0.9rem] aboutUs-text-big:text-big aboutUs-text-xbig:text-xl`}>{position}</p>
-      <p className={` ${textColorDescription} font-light text-big aboutUs-text-xbig:text-xl mt-5`}>{description}</p>
+      <p className={` ${textColorDescription} w-[80%] font-light text-big aboutUs-text-xbig:text-xl mt-5`}>{description}</p>
       <div className="flex items-center gap-2 mt-5">
         <a className="text-4xl" href={linkedin}>
           <FaLinkedin />

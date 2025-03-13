@@ -50,7 +50,7 @@ export const Services: React.FC = () => {
       <h1 className=" text-[2.5rem] w-[70%] services-text-lg:w-[60%] services-text-lg:text-[2.8rem] services-text-big:text-5xl services-text-xlbig:text-6xl font-extralight services-text-big:w-[50%] leading-tight tracking-tighter">
         {t.services.title}
       </h1>
-      <div className="flex items-center gap-5">
+      <div className="flex flex-col justify-center mx-auto change-desktop:flex change-desktop:flex-row change-desktop:items-center gap-5">
         {dataCards.map((card) => (
           <Cards
             key={card.id}

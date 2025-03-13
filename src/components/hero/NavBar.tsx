@@ -59,7 +59,7 @@ export const NavBar: React.FC = () => {
       ref={menuRef}
         className={`absolute top-6 right-3 p-3  text-white rounded-md z-20 transition-all duration-300 ease-in-out 
         ${menuOpen ? 'opacity-100 translate-y-0 bg-black flex flex-col items-start gap-8' : 'opacity-0 -translate-y-5 pointer-events-none flex flex-col items-start gap-8'} 
-        header-desktop:opacity-100 header-desktop:static header-desktop:flex header-desktop:flex-row header-desktop:items-center gap-10`}
+        change-desktop:opacity-100 change-desktop:static change-desktop:flex change-desktop:flex-row change-desktop:items-center gap-10`}
       >
         <a className={`text-xl ${textColor} font-light`} href="">{t.nav.services}</a>
         <a className={`text-xl ${textColor} font-light`} href="">{t.nav.about}</a>
