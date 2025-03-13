@@ -23,12 +23,12 @@ export const Hero: React.FC = () => {
           <img className="mt-4 w-[20rem] h-[20rem]   hero-img-lg:w-[23rem] hero-text-lg:h-[23rem] hero-img-big:w-[26rem] hero-img-big:h-[26rem] hero-img-xbig:w-[30rem] hero-img-xbig:h-[30rem] hero-img-xlbig:w-[35rem] hero-img-xlbig:h-[35rem]" src={currentColor === 'dark' ? shapesBlack : shapesWhite} />
           <div className="flex flex-col">
             <h1
-              className={`font-quicksand ${titleColor} text-[8.3rem] hero-text-lg:text-[10rem] hero-text-big:text-[12rem] hero-text-xbig:text-[13rem] hero-text-xlbig:text-[15rem] leading-tight tracking-tighter font-extralight`}
+              className={`font-quicksand ${titleColor} text-[7.5rem] hero-text-md:text-[8.5rem] hero-text-lg:text-[10rem] hero-text-big:text-[12rem] hero-text-xbig:text-[13rem] hero-text-xlbig:text-[15rem] leading-tight tracking-tighter font-extralight`}
             >
               {t.hero.title}
             </h1>
             <p
-              className={`font-quicksand ${descriptionColor} leading-tight text-[1.3rem] hero-text-lg:text-[1.5rem] hero-text-big:text-[2rem] hero-text-xlbig:text-[2.5rem] font-extralight`}
+              className={`font-quicksand ${descriptionColor} leading-tight text-[1.1rem] hero-text-md:text-[1.3rem] hero-text-lg:text-[1.5rem] hero-text-big:text-[2rem] hero-text-xlbig:text-[2.5rem] font-extralight`}
             >
               {t.hero.description}
             </p>

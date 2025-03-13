@@ -50,6 +50,8 @@ body{
     --breakpoint-aboutUs-img-big: 1500px;
     --breakpoint-aboutUs-text-lg: 1300px;
     --breakpoint-aboutUs-img-lg: 1300px;
+    --breakpoint-aboutUs-text-midLg: 1200px;
+    --breakpoint-aboutUs-img-lg: 1300px;
 
     /* Breakpoint Contact-us */
     --breakpoint-contactUs-text-xlbig: 1750px;
