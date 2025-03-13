@@ -28,7 +28,7 @@ export const Hero: React.FC = () => {
               {t.hero.title}
             </h1>
             <p
-              className={`font-quicksand ${descriptionColor} leading-tight text-[1.2rem] hero-text-lg:text-[1.5rem] hero-text-big:text-[2rem] hero-text-xlbig:text-[2.5rem] font-extralight`}
+              className={`font-quicksand ${descriptionColor} leading-tight text-[1.3rem] hero-text-lg:text-[1.5rem] hero-text-big:text-[2rem] hero-text-xlbig:text-[2.5rem] font-extralight`}
             >
               {t.hero.description}
             </p>
