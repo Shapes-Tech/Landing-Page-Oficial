@@ -45,7 +45,7 @@ const ContactForm: React.FC = () => {
   return (
     <form
       onSubmit={handleSubmit}
-      className="flex flex-col gap-6 mt-7 border w-[80%] border-slate-400 rounded-3xl p-7 font-quicksand"
+      className="flex flex-col mx-auto gap-6 mt-7 border w-[100%] change-desktop:w-[80%] change-desktop:mx-0 border-slate-400 rounded-3xl p-7 font-quicksand"
     >
       <input
         className={`border ${borderColor} rounded-2xl p-3 ${textColor}`}

@@ -47,7 +47,7 @@ export const Services: React.FC = () => {
   ];
   return (
     <section className={`${textColor} flex flex-col items-start w-[80%] mx-auto mt-24 mb-10 font-quicksand font-extralight`}>
-      <h1 className="text-[2.5rem] w-[70%] mt-24 change-desktop:mt-0 services-text-lg:w-[60%] services-text-lg:text-[2.8rem] services-text-big:text-5xl services-text-xlbig:text-6xl font-extralight services-text-big:w-[50%] leading-tight tracking-tighter">
+      <h1 className="text-[2rem] w-[85%] services-text-small:text-[2.5rem] services-text-small:w-[70%] mt-24 change-desktop:mt-0 services-text-lg:w-[60%] services-text-lg:text-[2.8rem] services-text-big:text-5xl services-text-xlbig:text-6xl font-extralight services-text-big:w-[50%] leading-tight tracking-tighter">
         {t.services.title}
       </h1>
       <div className="flex flex-col justify-center mx-auto change-desktop:flex change-desktop:flex-row change-desktop:items-center gap-5">

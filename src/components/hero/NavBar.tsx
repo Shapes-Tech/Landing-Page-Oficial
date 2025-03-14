@@ -14,6 +14,7 @@ export const NavBar: React.FC = () => {
   const currentLanguage = useSelector((state: RootState) => state.language.currentLanguage);
   const currentColor = useSelector((state: RootState) => state.color.mode);
   const textColor = currentColor === 'dark' ? 'text-white' : 'text-black'; 
+  const bgColor = currentColor === 'dark' ? 'bg-black-bg' : 'bg-white-bg'; 
   const t = translations[currentLanguage];
   const menuRef = useRef<HTMLDivElement>(null)
 
@@ -61,8 +62,8 @@ export const NavBar: React.FC = () => {
         <nav
           className={`
             ${isMobile ? 'absolute top-6 right-0 p-5 w-[12rem] rounded-md shadow-lg z-20 transition-all duration-300 ease-in-out' : 'static'}
-            ${isMobile && menuOpen ? 'opacity-100 translate-x-0 block' : ''}
-            ${isMobile && !menuOpen ? 'opacity-0 translate-x-full hidden' : ''}
+            ${isMobile && menuOpen ? `opacity-100 translate-x-0 block bg-black ${bgColor} ` : ''}
+            ${isMobile && !menuOpen ? `opacity-0 translate-x-full hidden ${bgColor}` : ''}
             ${!isMobile ? 'flex flex-row items-center gap-10' : 'flex flex-col items-start gap-8'}
           `}
         >

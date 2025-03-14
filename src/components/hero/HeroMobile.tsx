@@ -17,9 +17,9 @@ const HeroMobile: React.FC = () => {
     currentColor === "dark" ? "text-white" : "text-black";
 
   return (
-    <section className="flex justify-center items-start w-[80%] mx-auto mt-10">
+    <section className="flex justify-center w-[80%] mx-auto mt-10">
       {/* Contenedor principal con flex */}
-      <div className="flex justify-center items-center gap-7">
+      <div className="flex justify-around items-center gap-7">
         {/* Título rotado */}
         <div className="flex items-center justify-center h-[300px] w-[80px]">
           <h1
@@ -33,7 +33,7 @@ const HeroMobile: React.FC = () => {
         </div>
 
         {/* Contenido central */}
-        <div className="flex flex-col items-center w-[50%]">
+        <div className="flex flex-col items-start w-[50%]">
           <img
             className="w-[20rem] object-contain"
             src={currentColor === "dark" ? shapesBlack : shapesWhite}
@@ -41,7 +41,7 @@ const HeroMobile: React.FC = () => {
           />
 
           <p
-            className={`font-quicksand ${descriptionColor} leading-tight text-[1.1rem] hero-text-md:text-[1.3rem] hero-text-lg:text-[1.5rem] hero-text-big:text-[2rem] hero-text-xlbig:text-[2.5rem] font-extralight mt-6`}
+            className={`font-quicksand ${descriptionColor} w-[80%] leading-tight text-[1.1rem]  font-extralight mt-6`}
           >
             {t.hero.description}
           </p>
