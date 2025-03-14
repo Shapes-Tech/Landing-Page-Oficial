@@ -68,6 +68,7 @@ body{
 
     /* Breakpoint Shapes */
     --breakpoint-shapes-img-lg: 1300px;
+    --breakpoint-shapes-img-md: 1100px;
 }
 
 @layer utilities {
