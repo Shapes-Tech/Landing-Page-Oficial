@@ -31,7 +31,6 @@ export const NavBar: React.FC = () => {
       }
     };
 
-
     window.addEventListener("resize", handleResize);
     document.addEventListener("mousedown", handleClickOutside);
 
@@ -49,24 +48,31 @@ export const NavBar: React.FC = () => {
       {/* Icono del menú hamburguesa */}
       {isMobile && (
         <CiMenuFries 
-          className='text-white text-3xl cursor-pointer z-10' 
+          className={`${textColor} text-3xl cursor-pointer z-10
+          ${isMobile && !menuOpen ? 'block' : 'hidden'}
+          `}
+
           onClick={() => setMenuOpen(!menuOpen)}
         />
       )}
 
       {/* Menú de navegación */}
-      <nav
-      ref={menuRef}
-        className={`absolute top-6 right-3 p-3  text-white rounded-md z-20 transition-all duration-300 ease-in-out 
-        ${menuOpen ? 'opacity-100 translate-y-0 bg-black flex flex-col items-start gap-8' : 'opacity-0 -translate-y-5 pointer-events-none flex flex-col items-start gap-8'} 
-        change-desktop:opacity-100 change-desktop:static change-desktop:flex change-desktop:flex-row change-desktop:items-center gap-10`}
-      >
-        <a className={`text-xl ${textColor} font-light`} href="">{t.nav.services}</a>
-        <a className={`text-xl ${textColor} font-light`} href="">{t.nav.about}</a>
-        <a className={`text-xl ${textColor} font-light`} href="">{t.nav.contact}</a>
-        <LanguageSwitch />
-        <ColorSwitch />
-      </nav>
+      <div ref={menuRef} className={isMobile && !menuOpen ? 'hidden' : 'block'}>
+        <nav
+          className={`
+            ${isMobile ? 'absolute top-6 right-0 p-5 rounded-md shadow-lg z-20 transition-all duration-300 ease-in-out' : 'static'}
+            ${isMobile && menuOpen ? 'opacity-100 translate-x-0 block' : ''}
+            ${isMobile && !menuOpen ? 'opacity-0 translate-x-full hidden' : ''}
+            ${!isMobile ? 'flex flex-row items-center gap-10' : 'flex flex-col items-start gap-8'}
+          `}
+        >
+          <a className={`text-xl ${textColor} font-light`} href="">{t.nav.services}</a>
+          <a className={`text-xl ${textColor} font-light`} href="">{t.nav.about}</a>
+          <a className={`text-xl ${textColor} font-light`} href="">{t.nav.contact}</a>
+          <LanguageSwitch />
+          <ColorSwitch />
+        </nav>
+      </div>
     </header>
   );
 }
