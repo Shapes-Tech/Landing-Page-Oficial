@@ -15,37 +15,44 @@ const HeroMobile: React.FC = () => {
     currentColor === "dark" ? "text-white opacity-40" : "text-[#959595] ";
   const descriptionColor =
     currentColor === "dark" ? "text-white" : "text-black";
+
   return (
-    <section className="w-[80%] ">
-      <div className="flex justify-center items-center">
-      <h1
-        className={`font-quicksand ${titleColor} text-[7.5rem] 
-  hero-text-md:text-[8.5rem] hero-text-lg:text-[10rem] 
-  hero-text-big:text-[12rem] hero-text-xbig:text-[13rem] 
-  hero-text-xlbig:text-[15rem] leading-tight tracking-tighter 
-  font-extralight transform rotate-[-90deg] 
-  whitespace-nowrap  mt-[15rem]`}
-      >
-        {t.hero.title}
-      </h1>
-      <div className="flex flex-col">
-      <img
-          className="mt-4 w-[25rem] h-[15rem]  hero-img-lg:w-[23rem] hero-text-lg:h-[23rem] hero-img-big:w-[26rem] hero-img-big:h-[26rem] hero-img-xbig:w-[30rem] hero-img-xbig:h-[30rem] hero-img-xlbig:w-[35rem] hero-img-xlbig:h-[35rem]"
-          src={currentColor === "dark" ? shapesBlack : shapesWhite}
-        />
-         <p
-            className={`font-quicksand ${descriptionColor} leading-tight text-[1.1rem] hero-text-md:text-[1.3rem] hero-text-lg:text-[1.5rem] hero-text-big:text-[2rem] hero-text-xlbig:text-[2.5rem] font-extralight`}
+    <section className="flex justify-center items-start w-[80%] mx-auto mt-10">
+      {/* Contenedor principal con flex */}
+      <div className="flex justify-center items-center gap-7">
+        {/* Título rotado */}
+        <div className="flex items-center justify-center h-[300px] w-[80px]">
+          <h1
+            className={`font-quicksand ${titleColor} text-[7.5rem] 
+    leading-tight tracking-tighter whitespace-nowrap
+    font-extralight transform -rotate-90 origin-center`}
+            style={{ width: "max-content" }}
+          >
+            {t.hero.title}
+          </h1>
+        </div>
+
+        {/* Contenido central */}
+        <div className="flex flex-col items-center w-[50%]">
+          <img
+            className="w-[20rem] object-contain"
+            src={currentColor === "dark" ? shapesBlack : shapesWhite}
+            alt="Shapes"
+          />
+
+          <p
+            className={`font-quicksand ${descriptionColor} leading-tight text-[1.1rem] hero-text-md:text-[1.3rem] hero-text-lg:text-[1.5rem] hero-text-big:text-[2rem] hero-text-xlbig:text-[2.5rem] font-extralight mt-6`}
           >
             {t.hero.description}
           </p>
+
           <button
             className={`${descriptionColor} button-hero animate-button font-medium mt-12 hero-text-lg:mt-16 hero-text-lg:text-[1.5rem] cursor-pointer`}
           >
             {t.hero.button}
           </button>
+        </div>
       </div>
-      </div>
-      
     </section>
   );
 };

@@ -60,7 +60,7 @@ export const NavBar: React.FC = () => {
       <div ref={menuRef} className={isMobile && !menuOpen ? 'hidden' : 'block'}>
         <nav
           className={`
-            ${isMobile ? 'absolute top-6 right-0 p-5 rounded-md shadow-lg z-20 transition-all duration-300 ease-in-out' : 'static'}
+            ${isMobile ? 'absolute top-6 right-0 p-5 w-[12rem] rounded-md shadow-lg z-20 transition-all duration-300 ease-in-out' : 'static'}
             ${isMobile && menuOpen ? 'opacity-100 translate-x-0 block' : ''}
             ${isMobile && !menuOpen ? 'opacity-0 translate-x-full hidden' : ''}
             ${!isMobile ? 'flex flex-row items-center gap-10' : 'flex flex-col items-start gap-8'}
