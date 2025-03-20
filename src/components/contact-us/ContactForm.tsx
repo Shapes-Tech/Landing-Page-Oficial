@@ -2,10 +2,11 @@ import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { translations } from "../../translations";
 import { RootState } from "../../store";
+import emailJs from "@emailjs/browser";
 
 interface IFormData {
-  name: string;
-  email: string;
+  user_name: string;
+  user_email: string;
   message: string;
 }
 
@@ -18,8 +19,8 @@ const ContactForm: React.FC = () => {
   const borderColor = currentColor === 'dark' ? 'border-white' : 'border-black'
   const t = translations[currentLanguage];
   const [formData, setFormData] = useState<IFormData>({
-    name: "",
-    email: "",
+    user_name: "",
+    user_email: "",
     message: "",
   });
 
@@ -34,11 +35,16 @@ const ContactForm: React.FC = () => {
   };
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log(formData);
+    const templateParams = {
+      user_name: formData.user_name,
+      user_email: formData.user_email,
+      message: formData.message,
+    };
+    emailJs.send("service_zrtjxkl", "template_8vuxweg", templateParams, "xtVV_gvBzjfdHF6GV")
     setFormData((prev) => ({
       ...prev,
-      name: "",
-      email: "",
+      user_name: "",
+      user_email: "",
       message: "",
     }));
   };
@@ -49,17 +55,17 @@ const ContactForm: React.FC = () => {
     >
       <input
         className={`border ${borderColor} rounded-2xl p-3 ${textColor}`}
-        name="name"
-        value={formData.name}
+        name="user_name"
+        value={formData.user_name}
         onChange={handleChange}
         type="text"
         placeholder={t.contactUs.placeholder.name}
       />
       <input
         className={`border ${borderColor} rounded-2xl p-3 ${textColor}`}
-        value={formData.email}
+        value={formData.user_email}
         onChange={handleChange}
-        name="email"
+        name="user_email"
         type="text"
         placeholder={t.contactUs.placeholder.email}
       />
