@@ -2,8 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../store';
 import { translations } from '../../translations';
-import { FaTimes, FaPalette, FaCode, FaRobot } from 'react-icons/fa';
-import { BsCheckCircleFill } from 'react-icons/bs';
+import { FaTimes, FaPalette, FaCode, FaRobot, FaArrowRight } from 'react-icons/fa';
+import { BsCheckCircleFill, BsArrowUpRight } from 'react-icons/bs';
+import { motion, AnimatePresence } from 'framer-motion';
 
 interface ModalProps{
   handleModal: () => void;
@@ -13,8 +14,7 @@ interface ModalProps{
 const Modal: React.FC<ModalProps> = ({handleModal, id}) => {
   const currentLanguage = useSelector((state: RootState) => state.language.currentLanguage);
   const currentColor = useSelector((state: RootState) => state.color.mode);
-  const t = translations[currentLanguage]
-
+  const t = translations[currentLanguage];
   
   const [modal, setModal] = useState({
     title: "",
@@ -74,66 +74,223 @@ const Modal: React.FC<ModalProps> = ({handleModal, id}) => {
   const textColorMode = currentColor === 'dark' ? 'text-white' : 'text-[#333333]';
   const secondaryTextColor = currentColor === 'dark' ? 'text-gray-300' : 'text-gray-700';
   const IconComponent = modal.icon;
+  
+  // Variantes para las animaciones
+  const overlayVariants = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1 }
+  };
+  
+  const modalVariants = {
+    hidden: { opacity: 0, y: 50, scale: 0.95 },
+    visible: { 
+      opacity: 1, 
+      y: 0, 
+      scale: 1,
+      transition: { 
+        type: "spring", 
+        stiffness: 300, 
+        damping: 30,
+        delay: 0.1
+      } 
+    },
+    exit: { 
+      opacity: 0, 
+      y: 50, 
+      scale: 0.95,
+      transition: { 
+        duration: 0.2
+      } 
+    }
+  };
+  
+  const featureVariants = {
+    hidden: { opacity: 0, x: -20 },
+    visible: (i: number) => ({ 
+      opacity: 1, 
+      x: 0,
+      transition: { 
+        delay: 0.3 + (i * 0.1),
+        duration: 0.5
+      }
+    })
+  };
 
   return (
-    <div onClick={(e) => e.target === e.currentTarget && handleModal()} className="fixed z-50 top-0 left-0 w-screen h-screen bg-black/70 backdrop-blur-sm flex items-center justify-center overflow-y-auto p-4">
-      <div onClick={(e) => e.stopPropagation()} className={`${bgColor} border ${modal.borderColor} rounded-2xl w-full max-w-4xl max-h-[90vh] overflow-y-auto`}>
-        <div className="relative p-6 md:p-8">
-          {/* Header */}
-          <div className="flex justify-between items-center mb-6">
-            <h1 className={`${modal.textColor} text-2xl md:text-3xl font-bold`}>{modal.title}</h1>
-            <button 
-              className={`${textColorMode} hover:opacity-70 transition-opacity p-2`} 
+    <AnimatePresence>
+      <motion.div 
+        key="modal-overlay"
+        initial="hidden"
+        animate="visible"
+        exit="hidden"
+        variants={overlayVariants}
+        onClick={(e) => e.target === e.currentTarget && handleModal()} 
+        className="fixed z-50 top-0 left-0 w-screen h-screen bg-black/70 backdrop-blur-sm flex items-center justify-center overflow-y-auto p-4"
+      >
+        <motion.div 
+          key="modal-content"
+          initial="hidden"
+          animate="visible"
+          exit="exit"
+          variants={modalVariants}
+          onClick={(e) => e.stopPropagation()} 
+          className={`${bgColor} border-2 ${modal.borderColor} rounded-3xl w-full max-w-5xl max-h-[90vh] overflow-hidden shadow-2xl`}
+        >
+          {/* Barra superior con el color del servicio */}
+          <div className={`h-2 ${modal.bgColor.replace('/10', '')}`}></div>
+          
+          <div className="relative p-6 md:p-10">
+            {/* Botón de cierre */}
+            <motion.button 
+              className={`absolute top-4 right-4 ${textColorMode} hover:${modal.textColor} transition-colors p-2 rounded-full cursor-pointer z-10`} 
               onClick={handleModal}
               aria-label={t.services.close}
+              whileHover={{ rotate: 90 }}
+              transition={{ duration: 0.2 }}
             >
-              <FaTimes size={24} />
-            </button>
-          </div>
-          
-          {/* Content */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {/* Left column - Icon */}
-            <div className={`${modal.bgColor} rounded-xl overflow-hidden flex items-center justify-center p-8 h-64 md:h-auto`}>
-              {IconComponent && <IconComponent size={120} className={modal.textColor} />}
+              <FaTimes size={20} />
+            </motion.button>
+            
+            {/* Header */}
+            <div className="mb-10 relative">
+              <motion.h1 
+                className={`${modal.textColor} text-3xl md:text-4xl font-bold tracking-tight`}
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2, duration: 0.5 }}
+              >
+                {modal.title}
+              </motion.h1>
+              <motion.div 
+                className={`h-1 w-20 ${modal.bgColor.replace('/10', '')} mt-3 rounded-full`}
+                initial={{ width: 0 }}
+                animate={{ width: 80 }}
+                transition={{ delay: 0.4, duration: 0.5 }}
+              ></motion.div>
             </div>
             
-            {/* Right column - Description and features */}
-            <div className="flex flex-col gap-6">
-              <p className={`${textColorMode} text-lg leading-relaxed`}>
-                {modal.description}
-              </p>
+            {/* Content */}
+            <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 md:gap-12">
+              {/* Left column - Icon and Description */}
+              <div className="lg:col-span-2 flex flex-col gap-8">
+                <motion.div 
+                  className={`${modal.bgColor} rounded-2xl overflow-hidden flex items-center justify-center p-8 aspect-square`}
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: 0.3, duration: 0.5 }}
+                  whileHover={{ scale: 1.05 }}
+                >
+                  {IconComponent && (
+                    <motion.div
+                      initial={{ rotate: -10, opacity: 0 }}
+                      animate={{ rotate: 0, opacity: 1 }}
+                      transition={{ delay: 0.5, duration: 0.5 }}
+                    >
+                      <IconComponent size={100} className={modal.textColor} />
+                    </motion.div>
+                  )}
+                </motion.div>
+                
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.4, duration: 0.5 }}
+                  className="hidden lg:block"
+                >
+                  <motion.button 
+                    className={`${modal.textColor} ${modal.borderColor} border-2 cursor-pointer hover:${modal.bgColor.replace('/10', '/20')} transition-all duration-300 rounded-full px-8 py-4 font-medium flex items-center gap-3 w-full justify-center group`}
+                    onClick={handleModal}
+                    whileHover={{ scale: 1.03 }}
+                    whileTap={{ scale: 0.98 }}
+                  >
+                    {modal.cta}
+                    <motion.span
+                      initial={{ x: 0 }}
+                      whileHover={{ x: 5 }}
+                      className="transition-transform"
+                    >
+                      <BsArrowUpRight size={18} />
+                    </motion.span>
+                  </motion.button>
+                </motion.div>
+              </div>
               
-              <div>
-                <h3 className={`${modal.textColor} font-semibold text-xl mb-4`}>
-                  {t.services.features}
-                </h3>
-                <ul className="space-y-3">
-                  {modal.features.map((feature, index) => (
-                    <li key={index} className="flex items-start gap-3">
-                      <span className={`${modal.textColor} mt-1`}>
-                        <BsCheckCircleFill />
-                      </span>
-                      <span className={`${secondaryTextColor}`}>{feature}</span>
-                    </li>
-                  ))}
-                </ul>
+              {/* Right column - Description and features */}
+              <div className="lg:col-span-3 flex flex-col gap-8">
+                <motion.p 
+                  className={`${textColorMode} text-lg leading-relaxed`}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.3, duration: 0.5 }}
+                >
+                  {modal.description}
+                </motion.p>
+                
+                <div>
+                  <motion.h3 
+                    className={`${modal.textColor} font-semibold text-xl mb-6 flex items-center gap-2`}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.4, duration: 0.5 }}
+                  >
+                    {t.services.features}
+                    <motion.div 
+                      className={`h-[2px] w-12 ${modal.bgColor.replace('/10', '')} ml-2`}
+                      initial={{ width: 0 }}
+                      animate={{ width: 48 }}
+                      transition={{ delay: 0.5, duration: 0.5 }}
+                    ></motion.div>
+                  </motion.h3>
+                  
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-4">
+                    {modal.features.map((feature, index) => (
+                      <motion.div 
+                        key={index} 
+                        custom={index}
+                        variants={featureVariants}
+                        initial="hidden"
+                        animate="visible"
+                        className={`flex items-start gap-3 p-3 rounded-lg transition-colors hover:${modal.bgColor}`}
+                        whileHover={{ x: 5 }}
+                      >
+                        <span className={`${modal.textColor} mt-1 flex-shrink-0`}>
+                          <BsCheckCircleFill size={16} />
+                        </span>
+                        <span className={`${secondaryTextColor}`}>{feature}</span>
+                      </motion.div>
+                    ))}
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
-          
-          {/* CTA */}
-          <div className="mt-8 flex justify-center md:justify-end">
-            <button 
-              className={`${modal.textColor} ${modal.borderColor} border-2 cursor-pointer hover:bg-opacity-10 hover:bg-current transition-colors rounded-full px-6 py-3 font-medium`}
-              onClick={handleModal}
+            
+            {/* CTA para móvil */}
+            <motion.div 
+              className="mt-10 flex justify-center lg:hidden"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.6, duration: 0.5 }}
             >
-              {modal.cta}
-            </button>
+              <motion.button 
+                className={`${modal.textColor} ${modal.borderColor} border-2 cursor-pointer hover:${modal.bgColor.replace('/10', '/20')} transition-all duration-300 rounded-full px-8 py-4 font-medium flex items-center gap-3 w-full max-w-xs justify-center`}
+                onClick={handleModal}
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                {modal.cta}
+                <motion.span
+                  initial={{ x: 0 }}
+                  whileHover={{ x: 5 }}
+                  className="transition-transform"
+                >
+                  <BsArrowUpRight size={18} />
+                </motion.span>
+              </motion.button>
+            </motion.div>
           </div>
-        </div>
-      </div>
-    </div>
+        </motion.div>
+      </motion.div>
+    </AnimatePresence>
   );
 };
 
