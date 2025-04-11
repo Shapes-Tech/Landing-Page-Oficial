@@ -16,7 +16,40 @@ export const translations = {
       design:"Diseños únicos y atractivos que capturan la esencia de tu marca.",
       development:"Sitios web modernos y optimizados con las últimas tecnologías.",
       ai:"Soluciones web inteligentes potenciadas por inteligencia artificial.",
-      learnMore:"Saber más"
+      learnMore:"Saber más",
+      features: "Características principales",
+      close: "Cerrar",
+      designDetail:{
+        features:[
+          "Diseño UI/UX personalizado",
+          "Experiencia de usuario intuitiva",
+          "Diseño responsive",
+          "Identidad visual coherente",
+          "Optimización para conversiones"
+        ],
+        description:"Creamos diseños web únicos y atractivos que capturan la esencia de tu marca. Nuestro enfoque se centra en la experiencia del usuario, asegurando que cada elemento visual comunique tu mensaje de manera efectiva y genere confianza en tus visitantes."
+      },
+      developmentDetail:{
+        features:[
+          "Desarrollo frontend moderno",
+          "Arquitectura escalable",
+          "Optimización de rendimiento",
+          "SEO técnico",
+          "Integración de APIs"
+        ],
+        description:"Desarrollamos sitios web modernos y optimizados utilizando las últimas tecnologías. Nuestras soluciones son rápidas, seguras y escalables, garantizando que tu presencia digital crezca junto con tu negocio y ofrezca la mejor experiencia a tus usuarios."
+      },
+      aiDetail:{
+        features:[
+          "Chatbots inteligentes",
+          "Análisis predictivo",
+          "Automatización de procesos",
+          "Personalización avanzada",
+          "Sistemas de recomendación"
+        ],
+        description:"Potenciamos tu negocio con soluciones web inteligentes basadas en inteligencia artificial. Desde chatbots personalizados hasta sistemas de análisis predictivo, nuestras aplicaciones de IA transforman datos en insights accionables que impulsan el crecimiento de tu empresa."
+      },
+      cta: "Solicitar presupuesto"
     },
     aboutUs:{
       title: "Conoce a los expertos",
@@ -36,7 +69,7 @@ export const translations = {
       send:'Enviar'
     },
     footer:{
-      copyRight:'© 2025 Shapes. Todos los derechos reservados.'
+      copyRight:' 2025 Shapes. Todos los derechos reservados.'
     }
   },
   en: {
@@ -55,7 +88,40 @@ export const translations = {
       design:"Unique and attractive designs that capture the essence of your brand.",
       development:"Modern and optimized websites with the latest technology",
       ai:"Smart web solutions powered by artificial intelligence.",
-      learnMore:"Learn more"
+      learnMore:"Learn more",
+      features: "Key features",
+      close: "Close",
+      designDetail:{
+        features:[
+          "Custom UI/UX design",
+          "Intuitive user experience",
+          "Responsive design",
+          "Coherent visual identity",
+          "Conversion optimization"
+        ],
+        description:"We create unique and attractive designs that capture the essence of your brand. Our approach focuses on user experience, ensuring that every visual element effectively communicates your message and builds trust with your visitors."
+      },
+      developmentDetail:{
+        features:[
+          "Modern frontend development",
+          "Scalable architecture",
+          "Performance optimization",
+          "Technical SEO",
+          "API integration"
+        ],
+        description:"We develop modern and optimized websites using the latest technologies. Our solutions are fast, secure, and scalable, ensuring that your digital presence grows with your business and offers the best experience to your users."
+      },
+      aiDetail:{
+        features:[
+          "Intelligent chatbots",
+          "Predictive analytics",
+          "Process automation",
+          "Advanced personalization",
+          "Recommendation systems"
+        ],
+        description:"We empower your business with intelligent web solutions based on artificial intelligence. From custom chatbots to predictive analytics systems, our AI applications transform data into actionable insights that drive your company's growth."
+      },
+      cta: "Request a quote"
     },
     aboutUs:{
       title: "Meet the experts",
@@ -75,7 +141,7 @@ export const translations = {
       send:'Send'
     },
     footer:{
-      copyRight:'© 2025 Shapes. All rights reserved.'
+      copyRight:' 2025 Shapes. All rights reserved.'
     }
   },
 };
