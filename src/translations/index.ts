@@ -66,6 +66,22 @@ export const translations = {
         email:'Email',
         message:'Mensaje'
       },
+      validation: {
+        name: {
+          required: 'El nombre es obligatorio',
+          minLength: 'El nombre debe tener al menos 2 caracteres',
+          maxLength: 'El nombre no puede exceder los 50 caracteres'
+        },
+        email: {
+          required: 'El email es obligatorio',
+          invalid: 'Por favor, introduce un email válido'
+        },
+        message: {
+          required: 'El mensaje es obligatorio',
+          minLength: 'El mensaje debe tener al menos 10 caracteres',
+          maxLength: 'El mensaje no puede exceder los 500 caracteres'
+        }
+      },
       send:'Enviar',
       status: {
         sending: 'Enviando mensaje...',
@@ -142,6 +158,22 @@ export const translations = {
         name:'Name',
         email:'Email',
         message:'Message'
+      },
+      validation: {
+        name: {
+          required: 'Name is required',
+          minLength: 'Name must be at least 2 characters long',
+          maxLength: 'Name cannot exceed 50 characters'
+        },
+        email: {
+          required: 'Email is required',
+          invalid: 'Please enter a valid email'
+        },
+        message: {
+          required: 'Message is required',
+          minLength: 'Message must be at least 10 characters long',
+          maxLength: 'Message cannot exceed 500 characters'
+        }
       },
       send:'Send',
       status: {

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useSelector } from "react-redux";
 import { translations } from "../../translations";
@@ -11,6 +11,12 @@ interface IFormData {
   message: string;
 }
 
+interface IFormErrors {
+  user_name?: string;
+  user_email?: string;
+  message?: string;
+}
+
 type FormStatus = "idle" | "sending" | "success" | "error";
 
 const ContactForm: React.FC = () => {
@@ -21,12 +27,23 @@ const ContactForm: React.FC = () => {
   const textColor = currentColor === 'dark' ? 'text-white' : 'text-black'
   const borderColor = currentColor === 'dark' ? 'border-white' : 'border-black'
   const t = translations[currentLanguage];
+  
   const [formData, setFormData] = useState<IFormData>({
     user_name: "",
     user_email: "",
     message: "",
   });
+  
+  const [formErrors, setFormErrors] = useState<IFormErrors>({});
+  const [touched, setTouched] = useState<Record<string, boolean>>({});
   const [formStatus, setFormStatus] = useState<FormStatus>("idle");
+
+  // Validar el formulario cuando cambian los datos
+  useEffect(() => {
+    if (Object.keys(touched).length > 0) {
+      validateForm();
+    }
+  }, [formData, touched]);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -36,13 +53,73 @@ const ContactForm: React.FC = () => {
       ...prev,
       [name]: value,
     }));
+    
+    // Marcar el campo como tocado
+    if (!touched[name]) {
+      setTouched(prev => ({
+        ...prev,
+        [name]: true
+      }));
+    }
+  };
+  
+  const handleBlur = (
+    e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name } = e.target;
+    setTouched(prev => ({
+      ...prev,
+      [name]: true
+    }));
+  };
+  
+  // Función para validar el formulario
+  const validateForm = (): boolean => {
+    const errors: IFormErrors = {};
+    
+    // Validación del nombre
+    if (!formData.user_name.trim()) {
+      errors.user_name = t.contactUs.validation.name.required;
+    } else if (formData.user_name.trim().length < 2) {
+      errors.user_name = t.contactUs.validation.name.minLength;
+    } else if (formData.user_name.trim().length > 50) {
+      errors.user_name = t.contactUs.validation.name.maxLength;
+    }
+    
+    // Validación del email
+    if (!formData.user_email.trim()) {
+      errors.user_email = t.contactUs.validation.email.required;
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.user_email)) {
+      errors.user_email = t.contactUs.validation.email.invalid;
+    }
+    
+    // Validación del mensaje
+    if (!formData.message.trim()) {
+      errors.message = t.contactUs.validation.message.required;
+    } else if (formData.message.trim().length < 10) {
+      errors.message = t.contactUs.validation.message.minLength;
+    } else if (formData.message.trim().length > 500) {
+      errors.message = t.contactUs.validation.message.maxLength;
+    }
+    
+    setFormErrors(errors);
+    return Object.keys(errors).length === 0;
   };
   
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     
-    // Validación básica
-    if (!formData.user_name || !formData.user_email || !formData.message) {
+    // Marcar todos los campos como tocados
+    setTouched({
+      user_name: true,
+      user_email: true,
+      message: true
+    });
+    
+    // Validar el formulario antes de enviar
+    const isValid = validateForm();
+    
+    if (!isValid) {
       return;
     }
     
@@ -70,6 +147,10 @@ const ContactForm: React.FC = () => {
         user_email: "",
         message: "",
       });
+      
+      // Resetear los errores y campos tocados
+      setFormErrors({});
+      setTouched({});
       
       // Después de 5 segundos, volver al estado inicial
       setTimeout(() => {
@@ -125,6 +206,32 @@ const ContactForm: React.FC = () => {
     }
   };
   
+  // Variantes para los mensajes de error
+  const errorMessageVariants = {
+    initial: { 
+      opacity: 0, 
+      height: 0,
+      y: -5
+    },
+    animate: { 
+      opacity: 1, 
+      height: "auto",
+      y: 0,
+      transition: {
+        type: "spring",
+        stiffness: 500,
+        damping: 30
+      }
+    },
+    exit: {
+      opacity: 0,
+      height: 0,
+      transition: {
+        duration: 0.2
+      }
+    }
+  };
+  
   // Colores y estilos para los mensajes de estado
   const getStatusStyles = () => {
     if (formStatus === "success") {
@@ -159,6 +266,14 @@ const ContactForm: React.FC = () => {
     return "";
   };
   
+  // Función para obtener el estilo del borde según el estado de validación
+  const getInputBorderStyle = (fieldName: keyof IFormData) => {
+    if (touched[fieldName] && formErrors[fieldName]) {
+      return 'border-red-500 focus:border-red-500 focus:ring-1 focus:ring-red-500';
+    }
+    return `border-${borderColor.split('-')[1]} focus:border-[#6FBB03] focus:ring-1 focus:ring-[#6FBB03]`;
+  };
+  
   const statusStyles = getStatusStyles();
   
   return (
@@ -175,35 +290,94 @@ const ContactForm: React.FC = () => {
         transition={{ duration: 0.3 }}
         className="flex flex-col gap-6"
       >
-        <input
-          className={`border ${borderColor} rounded-2xl p-3 ${textColor} focus:border-[#6FBB03] focus:ring-1 focus:ring-[#6FBB03] focus:outline-none transition-all duration-300`}
-          name="user_name"
-          value={formData.user_name}
-          onChange={handleChange}
-          type="text"
-          placeholder={t.contactUs.placeholder.name}
-          disabled={formStatus === "sending"}
-          required
-        />
-        <input
-          className={`border ${borderColor} rounded-2xl p-3 ${textColor} focus:border-[#6FBB03] focus:ring-1 focus:ring-[#6FBB03] focus:outline-none transition-all duration-300`}
-          value={formData.user_email}
-          onChange={handleChange}
-          name="user_email"
-          type="email"
-          placeholder={t.contactUs.placeholder.email}
-          disabled={formStatus === "sending"}
-          required
-        />
-        <textarea
-          className={`border ${borderColor} rounded-2xl p-3 ${textColor} resize-none min-h-[120px] focus:border-[#6FBB03] focus:ring-1 focus:ring-[#6FBB03] focus:outline-none transition-all duration-300`}
-          value={formData.message}
-          onChange={handleChange}
-          name="message"
-          placeholder={t.contactUs.placeholder.message}
-          disabled={formStatus === "sending"}
-          required
-        ></textarea>
+        {/* Campo de nombre */}
+        <div className="flex flex-col gap-1">
+          <input
+            className={`border ${getInputBorderStyle('user_name')} rounded-2xl p-3 ${textColor} outline-none transition-all duration-300`}
+            name="user_name"
+            value={formData.user_name}
+            onChange={handleChange}
+            onBlur={handleBlur}
+            type="text"
+            placeholder={t.contactUs.placeholder.name}
+            disabled={formStatus === "sending"}
+            aria-invalid={touched.user_name && !!formErrors.user_name}
+            aria-describedby={formErrors.user_name ? "user_name-error" : undefined}
+          />
+          <AnimatePresence>
+            {touched.user_name && formErrors.user_name && (
+              <motion.div
+                id="user_name-error"
+                variants={errorMessageVariants}
+                initial="initial"
+                animate="animate"
+                exit="exit"
+                className="text-red-500 text-sm pl-2 font-medium"
+              >
+                {formErrors.user_name}
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
+        
+        {/* Campo de email */}
+        <div className="flex flex-col gap-1">
+          <input
+            className={`border ${getInputBorderStyle('user_email')} rounded-2xl p-3 ${textColor} outline-none transition-all duration-300`}
+            value={formData.user_email}
+            onChange={handleChange}
+            onBlur={handleBlur}
+            name="user_email"
+            type="email"
+            placeholder={t.contactUs.placeholder.email}
+            disabled={formStatus === "sending"}
+            aria-invalid={touched.user_email && !!formErrors.user_email}
+            aria-describedby={formErrors.user_email ? "user_email-error" : undefined}
+          />
+          <AnimatePresence>
+            {touched.user_email && formErrors.user_email && (
+              <motion.div
+                id="user_email-error"
+                variants={errorMessageVariants}
+                initial="initial"
+                animate="animate"
+                exit="exit"
+                className="text-red-500 text-sm pl-2 font-medium"
+              >
+                {formErrors.user_email}
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
+        
+        {/* Campo de mensaje */}
+        <div className="flex flex-col gap-1">
+          <textarea
+            className={`border ${getInputBorderStyle('message')} rounded-2xl p-3 ${textColor} resize-none min-h-[120px] outline-none transition-all duration-300`}
+            value={formData.message}
+            onChange={handleChange}
+            onBlur={handleBlur}
+            name="message"
+            placeholder={t.contactUs.placeholder.message}
+            disabled={formStatus === "sending"}
+            aria-invalid={touched.message && !!formErrors.message}
+            aria-describedby={formErrors.message ? "message-error" : undefined}
+          ></textarea>
+          <AnimatePresence>
+            {touched.message && formErrors.message && (
+              <motion.div
+                id="message-error"
+                variants={errorMessageVariants}
+                initial="initial"
+                animate="animate"
+                exit="exit"
+                className="text-red-500 text-sm pl-2 font-medium"
+              >
+                {formErrors.message}
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
       </motion.div>
       
       {/* Contenedor para mensajes de estado */}
