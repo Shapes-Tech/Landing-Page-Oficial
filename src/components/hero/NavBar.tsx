@@ -149,7 +149,7 @@ export const NavBar: React.FC = () => {
         scrolled ? `${bgColor} shadow-md py-3` : 'py-5'
       }`}
     >
-      <div className="flex justify-between items-center px-10 w-full max-w-[1600px] mx-auto">
+      <div className="flex justify-between items-center px-10 w-full max-w-[1900px] mx-auto">
         {/* Logo con funcionalidad de scroll al inicio */}
         <a 
           href="#" 
