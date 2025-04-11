@@ -30,7 +30,7 @@ export const AboutUs: React.FC = () => {
     {
       name: 'nacho',
       lastName: 'fernández',
-      position: 'Frontend Developer',
+      position: 'Full Stack Developer',
       img: nachoImage,
       description: t.aboutUs.nachoDescription,
       linkedin: '',

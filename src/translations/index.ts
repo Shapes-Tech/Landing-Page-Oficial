@@ -55,7 +55,7 @@ export const translations = {
       title: "Conoce a los expertos",
       subtitle:"Un equipo apasionado por la tecnología y comprometido con la excelencia.",
       andyDescription:"Especialista en crear experiencias digitales intuitivas y atractivas que cautivan a los usuarios.",
-      nachoDescription:"Experto en desarrollo frontend con pasión por crear interfaces modernas y responsivas.",
+      nachoDescription:"Experto en desarrollo full stack con pasión por crear interfaces modernas y soluciones backend robustas y escalables.",
       leoDescription:"Arquitecto de soluciones backend robustas y escalables que potencian aplicaciones modernas."
     },
     contactUs:{
