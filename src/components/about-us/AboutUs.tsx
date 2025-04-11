@@ -1,4 +1,6 @@
 import React from 'react'
+import { motion } from 'framer-motion'
+import { useInView } from 'react-intersection-observer'
 import { translations } from '../../translations'
 import { useSelector } from 'react-redux'
 import { RootState } from '../../store'
@@ -12,6 +14,14 @@ export const AboutUs: React.FC = () => {
   const currentColor = useSelector((state: RootState) => state.color.mode)
   const textColor = currentColor === 'dark' ? 'text-white' : 'text-black'
   const t = translations[currentLanguage]
+  
+  // Configuración para detectar cuando la sección está en el viewport
+  const [ref, inView] = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+    rootMargin: "-100px 0px"
+  });
+  
   const aboutUsData = [
     {
       name: 'andrea',
@@ -19,8 +29,8 @@ export const AboutUs: React.FC = () => {
       position: 'UX/UI - Frontend Developer',
       img: andyImage,
       description: t.aboutUs.andyDescription,
-      linkedin: '',
-      github: '',
+      linkedin: 'a',
+      github: 'a',
       borderColor: "border-[#FD4441]",
       textColor: "text-[#FD4441]",
 /*       shape: (
@@ -33,8 +43,8 @@ export const AboutUs: React.FC = () => {
       position: 'Full Stack Developer',
       img: nachoImage,
       description: t.aboutUs.nachoDescription,
-      linkedin: '',
-      github: '',
+      linkedin: 'a',
+      github: 'a',
       borderColor: "border-[#6FBB03]",
       textColor: "text-[#6FBB03]",
 /*       shape: (
@@ -57,24 +67,73 @@ export const AboutUs: React.FC = () => {
     
   ];
   
+  // Variantes para las animaciones
+  const titleVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: {
+        type: "spring",
+        stiffness: 300,
+        damping: 25,
+        duration: 0.7
+      }
+    }
+  };
+  
+  const subtitleVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: {
+        type: "spring",
+        stiffness: 300,
+        damping: 25,
+        duration: 0.7,
+        delay: 0.2
+      }
+    }
+  };
   
   return (
-    <section className={`${textColor} flex flex-col items-start w-[80%] mx-auto font-quicksand pb-6 mt-16`}>
-      <h1 className='text-[2rem] w-[85%] aboutUs-text-small:text-5xl font-extralight'>{t.aboutUs.title}</h1>
-      <h2 className=' text-[1.2rem] aboutUs-text-small:text-[1.4rem] aboutUs-text-big:text-[1.6rem] aboutUs-text-xbig:text-3xl aboutUs-text-xlbig:text-4xl font-light mt-3'>{t.aboutUs.subtitle}</h2>
+    <section 
+      ref={ref}
+      className={`${textColor} flex flex-col items-start w-[80%] mx-auto font-quicksand pb-6 mt-16`}
+    >
+      <motion.h1 
+        initial="hidden"
+        animate={inView ? "visible" : "hidden"}
+        variants={titleVariants}
+        className='text-[2rem] w-[85%] aboutUs-text-small:text-5xl font-extralight'
+      >
+        {t.aboutUs.title}
+      </motion.h1>
+      
+      <motion.h2 
+        initial="hidden"
+        animate={inView ? "visible" : "hidden"}
+        variants={subtitleVariants}
+        className='text-[1.2rem] aboutUs-text-small:text-[1.4rem] aboutUs-text-big:text-[1.6rem] aboutUs-text-xbig:text-3xl aboutUs-text-xlbig:text-4xl font-light mt-3'
+      >
+        {t.aboutUs.subtitle}
+      </motion.h2>
+      
       <div className="flex flex-col justify-center mx-auto gap-5 mt-10 change-desktop:flex-row change-desktop:items-center change-desktop:justify-between">
-        {aboutUsData.map((data,index) =>(
+        {aboutUsData.map((data, index) => (
           <Cards 
-          key={index}
-          name={data.name}
-          lastName={data.lastName}
-          position={data.position}
-          img={data.img}
-          borderColor={data.borderColor}
-          textColor={data.textColor}
-          description={data.description}
-          linkedin={data.linkedin}
-          github={data.github}
+            key={index}
+            name={data.name}
+            lastName={data.lastName}
+            position={data.position}
+            img={data.img}
+            borderColor={data.borderColor}
+            textColor={data.textColor}
+            description={data.description}
+            linkedin={data.linkedin}
+            github={data.github}
+            index={index} // Pasamos el índice para el efecto escalonado
 /*           shape={data.shape} */
           />
         ))}

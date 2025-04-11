@@ -59,14 +59,19 @@ export const translations = {
       leoDescription:"Arquitecto de soluciones backend robustas y escalables que potencian aplicaciones modernas."
     },
     contactUs:{
-      title:'Contactanos',
+      title:'Contáctanos',
       subtitle:'Descubre cómo podemos ayudarte a construir tu presencia digital.',
       placeholder:{
         name:'Nombre',
         email:'Email',
         message:'Mensaje'
       },
-      send:'Enviar'
+      send:'Enviar',
+      status: {
+        sending: 'Enviando mensaje...',
+        success: '¡Mensaje enviado con éxito! Nos pondremos en contacto contigo pronto.',
+        error: 'Hubo un error al enviar el mensaje. Por favor, inténtalo de nuevo.'
+      }
     },
     footer:{
       copyRight:' 2025 Shapes. Todos los derechos reservados.'
@@ -138,7 +143,12 @@ export const translations = {
         email:'Email',
         message:'Message'
       },
-      send:'Send'
+      send:'Send',
+      status: {
+        sending: 'Sending message...',
+        success: 'Message sent successfully! We will get back to you soon.',
+        error: 'There was an error sending your message. Please try again.'
+      }
     },
     footer:{
       copyRight:' 2025 Shapes. All rights reserved.'
