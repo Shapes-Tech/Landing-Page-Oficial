@@ -20,7 +20,9 @@ export const Hero: React.FC = () => {
   return (
     <section className="flex flex-col">
       <NavBar />
-      {isMobile ? <HeroMobile /> : <HeroDesktop />}
+      <div className="pt-24"> 
+        {isMobile ? <HeroMobile /> : <HeroDesktop />}
+      </div>
     </section>
   );
 };

@@ -74,6 +74,7 @@ export const Services: React.FC = () => {
   
   return (
     <section 
+      id="services"
       ref={ref}
       className={`${textColor} flex flex-col items-start w-[80%] mx-auto mt-24 mb-10 font-quicksand font-extralight`}
     >

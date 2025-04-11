@@ -6,7 +6,7 @@ import { useSelector } from 'react-redux'
 import { RootState } from '../../store'
 import andyImage from '../../assets/AndyCambra.jpg'
 import nachoImage from '../../assets/NachoFernandez.jpg'
-import leoImage from '../../assets/LeoBaranelli.jpeg'
+// import leoImage from '../../assets/LeoBaranelli.jpeg'
 import Cards from './Cards'
 
 export const AboutUs: React.FC = () => {
@@ -99,6 +99,7 @@ export const AboutUs: React.FC = () => {
   
   return (
     <section 
+      id="about-us"
       ref={ref}
       className={`${textColor} flex flex-col items-start w-[80%] mx-auto font-quicksand pb-6 mt-16`}
     >
