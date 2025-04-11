@@ -41,8 +41,8 @@ export const AboutUs: React.FC = () => {
         <div className="w-40 h-40 bg-[#6FBB03] opacity-25 group-hover:scale-100 group-hover:w-full group-hover:h-full transition-all duration-300"></div> // Cuadrado
       ), */
     },
-    {
-      name: 'leonardo',
+    
+/*       name: 'leonardo',
       lastName: 'baranelli',
       position: 'Backend Developer - AI Developer',
       img: leoImage,
@@ -50,11 +50,11 @@ export const AboutUs: React.FC = () => {
       linkedin: '',
       github: '',
       borderColor: "border-[#2782FF]",
-      textColor: "text-[#2782FF]",
+      textColor: "text-[#2782FF]", */
 /*       shape: (
         <div className="w-0 h-0 border-l-[40px] border-r-[40px] border-b-[70px] border-transparent border-b-[#2782FF] opacity-25 group-hover:scale-100 group-hover:w-full group-hover:h-full transition-all duration-300"></div> // Triángulo
       ), */
-    },
+    
   ];
   
   
