@@ -21,6 +21,7 @@ export const NavBar: React.FC = () => {
   const accentColor = currentColor === 'dark' ? '#6FBB03' : '#6FBB03';
   const t = translations[currentLanguage];
   const menuRef = useRef<HTMLDivElement>(null)
+  const navbarHeight = 80; // Altura aproximada del navbar en píxeles
 
   useEffect(() => {
     const handleResize = () => {
@@ -45,7 +46,7 @@ export const NavBar: React.FC = () => {
         setScrolled(false);
       }
       
-      const scrollPosition = window.scrollY + 100; // Offset para mejor detección
+      const scrollPosition = window.scrollY + navbarHeight + 50; // Offset para mejor detección, considerando la altura del navbar
       
       // Obtener todas las secciones
       const sections = [
@@ -97,9 +98,32 @@ export const NavBar: React.FC = () => {
       // Actualizar la sección activa
       setActiveSection(sectionId);
       
-      // Scroll suave a la sección
-      section.scrollIntoView({ behavior: "smooth" });
+      // Calcular la posición de desplazamiento considerando la altura del navbar
+      const offsetTop = section.offsetTop - navbarHeight - 20; // 20px de margen adicional
+      
+      // Scroll suave a la sección ajustada
+      window.scrollTo({
+        top: offsetTop,
+        behavior: "smooth"
+      });
     }
+  };
+  
+  // Función para desplazarse al inicio de la página
+  const scrollToTop = (e: React.MouseEvent) => {
+    e.preventDefault();
+    
+    // Cerrar el menú móvil si está abierto
+    setMenuOpen(false);
+    
+    // Resetear la sección activa
+    setActiveSection("");
+    
+    // Scroll suave al inicio de la página
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
   };
 
   // Variantes para la animación del indicador de hover
@@ -125,9 +149,15 @@ export const NavBar: React.FC = () => {
         scrolled ? `${bgColor} shadow-md py-3` : 'py-5'
       }`}
     >
-      <div className="flex justify-between items-center px-10 w-full max-w-[1900px] mx-auto">
-        {/* Logo */}
-        <img className='w-28' src={currentColor === "dark" ? logoAnimadoNegro : logoAnimadoBlanco} alt="Shapes Logo" />
+      <div className="flex justify-between items-center px-10 w-full max-w-[1600px] mx-auto">
+        {/* Logo con funcionalidad de scroll al inicio */}
+        <a 
+          href="#" 
+          onClick={scrollToTop}
+          className="cursor-pointer transition-transform duration-300 hover:scale-105"
+        >
+          <img className='w-28' src={currentColor === "dark" ? logoAnimadoNegro : logoAnimadoBlanco} alt="Shapes Logo" />
+        </a>
         
         {/* Icono del menú hamburguesa */}
         {isMobile && (
