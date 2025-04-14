@@ -2,9 +2,10 @@ import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../store';
 import { translations } from '../../translations';
-import { FaTimes, FaPalette, FaCode, FaRobot, FaArrowRight } from 'react-icons/fa';
+import { FaTimes, FaPalette, FaCode } from 'react-icons/fa';
 import { BsCheckCircleFill, BsArrowUpRight } from 'react-icons/bs';
 import { motion, AnimatePresence } from 'framer-motion';
+import { RiPagesLine } from 'react-icons/ri';
 
 interface ModalProps{
   handleModal: () => void;
@@ -45,7 +46,7 @@ const Modal: React.FC<ModalProps> = ({handleModal, id}) => {
       borderColor: "border-[#6FBB03]",
       textColor: "text-[#6FBB03]",
       bgColor: "bg-[#6FBB03]/10",
-      icon: FaCode,
+      icon: RiPagesLine,
       features: t.services.landingPage.features,
       description: t.services.landingPage.description,
       cta: t.services.cta,
@@ -56,7 +57,7 @@ const Modal: React.FC<ModalProps> = ({handleModal, id}) => {
       borderColor: "border-[#2782FF]",
       textColor: "text-[#2782FF]",
       bgColor: "bg-[#2782FF]/10",
-      icon: FaRobot,
+      icon: FaCode,
       features: t.services.developmentDetail.features,
       description: t.services.developmentDetail.description,
       cta: t.services.cta,
