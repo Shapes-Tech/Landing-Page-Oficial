@@ -17,7 +17,7 @@ export const NavBar: React.FC = () => {
   const currentLanguage = useSelector((state: RootState) => state.language.currentLanguage);
   const currentColor = useSelector((state: RootState) => state.color.mode);
   const textColor = currentColor === 'dark' ? 'text-white' : 'text-black'; 
-  const bgColor = currentColor === 'dark' ? 'bg-black' : 'bg-white'; 
+  const bgColor = currentColor === 'dark' ? 'bg-black-bg' : 'bg-white-bg'; 
   const accentColor = currentColor === 'dark' ? '#6FBB03' : '#6FBB03';
   const t = translations[currentLanguage];
   const menuRef = useRef<HTMLDivElement>(null)
@@ -146,7 +146,7 @@ export const NavBar: React.FC = () => {
   return (
     <header 
       className={`font-quicksand fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? `${bgColor} shadow-md py-3` : 'py-5'
+        scrolled ? `${bgColor}  py-3` : 'py-5'
       }`}
     >
       <div className="flex justify-between items-center px-10 w-full max-w-[1900px] mx-auto">
