@@ -14,8 +14,8 @@ export const translations = {
     services:{
       title:"Ofrecemos una amplia gama de servicios digitales",
       design:"Diseños únicos y atractivos que capturan la esencia de tu marca.",
-      development:"Sitios web modernos y optimizados con las últimas tecnologías.",
-      ai:"Soluciones web inteligentes potenciadas por inteligencia artificial.",
+      landing: "Impacto visual y diseño estratégico en una sola página.",
+      webApplications:"Sitios web modernos y optimizados con las últimas tecnologías.",
       learnMore:"Saber más",
       features: "Características principales",
       close: "Cerrar",
@@ -29,6 +29,17 @@ export const translations = {
         ],
         description:"Creamos diseños web únicos y atractivos que capturan la esencia de tu marca. Nuestro enfoque se centra en la experiencia del usuario, asegurando que cada elemento visual comunique tu mensaje de manera efectiva y genere confianza en tus visitantes."
       },
+      landingPage:{
+        features:[
+          "Diseños únicos y originales que reflejan tu marca",
+          "Animaciones suaves e interactivas que guían la atención del usuario",
+          "Diseños responsivos que se adaptan perfectamente a cualquier dispositivo",
+          "Transiciones fluidas para una navegación atractiva",
+          "Estética moderna alineada con tendencias UI/UX",
+          "Elementos visuales personalizados (íconos, ilustraciones, mockups)",
+        ],
+        description:"Creamos landing pages de alto impacto diseñadas para convertir visitantes en clientes. Con diseños persuasivos, mensajes claros y llamados a la acción estratégicos, nuestras landing pages maximizan tus tasas de conversión y generan resultados medibles para tu negocio. Optimizadas para SEO y velocidad, capturan leads de calidad y potencian tus campañas de marketing digital."
+      },
       developmentDetail:{
         features:[
           "Desarrollo frontend moderno",
@@ -38,16 +49,6 @@ export const translations = {
           "Integración de APIs"
         ],
         description:"Desarrollamos sitios web modernos y optimizados utilizando las últimas tecnologías. Nuestras soluciones son rápidas, seguras y escalables, garantizando que tu presencia digital crezca junto con tu negocio y ofrezca la mejor experiencia a tus usuarios."
-      },
-      aiDetail:{
-        features:[
-          "Chatbots inteligentes",
-          "Análisis predictivo",
-          "Automatización de procesos",
-          "Personalización avanzada",
-          "Sistemas de recomendación"
-        ],
-        description:"Potenciamos tu negocio con soluciones web inteligentes basadas en inteligencia artificial. Desde chatbots personalizados hasta sistemas de análisis predictivo, nuestras aplicaciones de IA transforman datos en insights accionables que impulsan el crecimiento de tu empresa."
       },
       cta: "Solicitar presupuesto"
     },
@@ -107,7 +108,8 @@ export const translations = {
     services:{
       title:"We offer a wide range of digital services",
       design:"Unique and attractive designs that capture the essence of your brand.",
-      development:"Modern and optimized websites with the latest technology",
+      landing:"Visual impact and strategic design on a single page.",
+      webApplications:"Modern and optimized websites with the latest technology",
       ai:"Smart web solutions powered by artificial intelligence.",
       learnMore:"Learn more",
       features: "Key features",
@@ -122,6 +124,17 @@ export const translations = {
         ],
         description:"We create unique and attractive designs that capture the essence of your brand. Our approach focuses on user experience, ensuring that every visual element effectively communicates your message and builds trust with your visitors."
       },
+      landingPage:{
+        features:[
+          "Unique and original designs that reflect your brand",
+          "Smooth and interactive animations that guide user attention",
+          "Responsive designs that adapt perfectly to any device",
+          "Fluid transitions for an engaging navigation experience",
+          "Modern aesthetics aligned with current UI/UX trends",
+          "Custom visual elements (icons, illustrations, mockups)"
+        ],
+        description:"We create high-impact landing pages designed to convert visitors into customers. With persuasive designs, clear messaging, and strategic calls to action, our landing pages maximize your conversion rates and generate measurable results for your business. Optimized for SEO and speed, they capture quality leads and power your digital marketing campaigns."
+      },
       developmentDetail:{
         features:[
           "Modern frontend development",
@@ -131,16 +144,6 @@ export const translations = {
           "API integration"
         ],
         description:"We develop modern and optimized websites using the latest technologies. Our solutions are fast, secure, and scalable, ensuring that your digital presence grows with your business and offers the best experience to your users."
-      },
-      aiDetail:{
-        features:[
-          "Intelligent chatbots",
-          "Predictive analytics",
-          "Process automation",
-          "Advanced personalization",
-          "Recommendation systems"
-        ],
-        description:"We empower your business with intelligent web solutions based on artificial intelligence. From custom chatbots to predictive analytics systems, our AI applications transform data into actionable insights that drive your company's growth."
       },
       cta: "Request a quote"
     },
