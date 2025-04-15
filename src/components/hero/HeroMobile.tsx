@@ -17,7 +17,7 @@ const HeroMobile: React.FC = () => {
     currentColor === "dark" ? "text-white" : "text-black";
 
   return (
-    <section className="flex justify-center w-[80%] mx-auto mt-10">
+    <section className="flex justify-center w-[80%] mx-auto mt-20">
       {/* Contenedor principal con flex */}
       <div className="flex justify-around items-center gap-7">
         {/* Título rotado */}

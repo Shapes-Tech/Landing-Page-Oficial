@@ -35,6 +35,7 @@ body{
     --breakpoint-hero-text-md: 1100px;
     --breakpoint-hero-img-md: 1100px;
     --breakpoint-hero-text-small: 800px;
+    --breakpoint-hero-img-small: 800px;
 
     /* Breakpoint Services */
     --breakpoint-services-text-xlbig: 1750px;

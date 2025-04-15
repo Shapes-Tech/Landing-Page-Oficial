@@ -116,7 +116,23 @@ const Modal: React.FC<ModalProps> = ({handleModal, id}) => {
       }
     })
   };
+  
+  const handleContactUs = () => {
+    handleModal();
 
+    const contactSection = document.getElementById('contact-us');
+    if (contactSection) {
+      // Calcular la posición con un offset para la barra de navegación
+      const navbarHeight = 100; // Altura aproximada del navbar + margen adicional
+      const offsetPosition = contactSection.offsetTop - navbarHeight;
+      
+      // Hacer scroll con el offset calculado
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+    }
+  };
   return (
     <AnimatePresence>
       <motion.div 
@@ -198,13 +214,7 @@ const Modal: React.FC<ModalProps> = ({handleModal, id}) => {
                 >
                   <motion.button 
                     className={`${modal.textColor} ${modal.borderColor} border-2 cursor-pointer hover:${modal.bgColor.replace('/10', '/20')} transition-all duration-300 rounded-full px-8 py-4 font-medium flex items-center gap-3`}
-                    onClick={() => {
-                      handleModal();
-                      const contactSection = document.getElementById('contact-us');
-                      if (contactSection) {
-                        contactSection.scrollIntoView({ behavior: 'smooth' });
-                      }
-                    }}
+                    onClick={handleContactUs}
                     whileHover={{ scale: 1.03 }}
                     whileTap={{ scale: 0.98 }}
                   >
@@ -282,7 +292,15 @@ const Modal: React.FC<ModalProps> = ({handleModal, id}) => {
                   handleModal();
                   const contactSection = document.getElementById('contact-us');
                   if (contactSection) {
-                    contactSection.scrollIntoView({ behavior: 'smooth' });
+                    // Calcular la posición con un offset para la barra de navegación
+                    const navbarHeight = 100; // Altura aproximada del navbar + margen adicional
+                    const offsetPosition = contactSection.offsetTop - navbarHeight;
+                    
+                    // Hacer scroll con el offset calculado
+                    window.scrollTo({
+                      top: offsetPosition,
+                      behavior: 'smooth'
+                    });
                   }
                 }}
                 whileHover={{ scale: 1.03 }}

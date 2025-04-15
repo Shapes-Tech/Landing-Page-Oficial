@@ -16,6 +16,20 @@ const HeroDesktop: React.FC = () => {
     currentColor === "dark" ? "text-white opacity-40" : "text-[#959595] ";
   const descriptionColor =
     currentColor === "dark" ? "text-white" : "text-black";
+  const handleContact = () => {
+    const contactSection = document.getElementById('contact-us');
+    if (contactSection) {
+      // Calcular la posición con un offset para la barra de navegación
+      const navbarHeight = 100; // Altura aproximada del navbar + margen adicional
+      const offsetPosition = contactSection.offsetTop - navbarHeight;
+      
+      // Hacer scroll con el offset calculado
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+    }
+  };
   return (
     <div className="flex justify-center">
       <div className="flex justify-center gap-14 mt-10 w-[80%]">
@@ -36,6 +50,7 @@ const HeroDesktop: React.FC = () => {
           </p>
           <button
             className={`${descriptionColor} button-hero animate-button font-medium mt-12 hero-text-lg:mt-16 hero-text-lg:text-[1.5rem] cursor-pointer`}
+            onClick={handleContact}
           >
             {t.hero.button}
           </button>
