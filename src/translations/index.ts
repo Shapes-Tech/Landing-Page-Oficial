@@ -33,12 +33,11 @@ export const translations = {
         features:[
           "Diseños únicos y originales que reflejan tu marca",
           "Animaciones suaves e interactivas que guían la atención del usuario",
-          "Diseños responsivos que se adaptan perfectamente a cualquier dispositivo",
+          "Diseños responsivos que se adaptan a cualquier dispositivo",
           "Transiciones fluidas para una navegación atractiva",
           "Estética moderna alineada con tendencias UI/UX",
-          "Elementos visuales personalizados (íconos, ilustraciones, mockups)",
         ],
-        description:"Creamos landing pages de alto impacto diseñadas para convertir visitantes en clientes. Con diseños persuasivos, mensajes claros y llamados a la acción estratégicos, nuestras landing pages maximizan tus tasas de conversión y generan resultados medibles para tu negocio. Optimizadas para SEO y velocidad, capturan leads de calidad y potencian tus campañas de marketing digital."
+        description:"Creamos landing pages de alto impacto diseñadas para convertir visitantes en clientes. Con diseños persuasivos, mensajes claros y llamados a la acción estratégicos, nuestras landing pages maximizan tus tasas de conversión y generan resultados medibles para tu negocio."
       },
       developmentDetail:{
         features:[

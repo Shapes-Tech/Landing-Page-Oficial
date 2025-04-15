@@ -135,10 +135,8 @@ const Modal: React.FC<ModalProps> = ({handleModal, id}) => {
           exit="exit"
           variants={modalVariants}
           onClick={(e) => e.stopPropagation()} 
-          className={`${bgColor} border-2 ${modal.borderColor} rounded-3xl w-full max-w-5xl max-h-[90vh] overflow-hidden shadow-2xl`}
+          className={`${bgColor} border-2 ${modal.borderColor} rounded-3xl w-[95%] services-modal-md:max-w-5xl max-h-[90vh] overflow-y-auto modal-scroll shadow-2xl`}
         >
-          {/* Barra superior con el color del servicio */}
-          <div className={`h-2 ${modal.bgColor.replace('/10', '')}`}></div>
           
           <div className="relative p-6 md:p-10">
             {/* Botón de cierre */}
@@ -173,7 +171,7 @@ const Modal: React.FC<ModalProps> = ({handleModal, id}) => {
             {/* Content */}
             <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 md:gap-12">
               {/* Left column - Icon and Description */}
-              <div className="lg:col-span-2 flex flex-col gap-8">
+              <div className="lg:col-span-2 flex flex-col items-center lg:items-stretch gap-8">
                 <motion.div 
                   className={`${modal.bgColor} rounded-2xl overflow-hidden flex items-center justify-center p-8 aspect-square`}
                   initial={{ opacity: 0, scale: 0.8 }}
@@ -195,12 +193,18 @@ const Modal: React.FC<ModalProps> = ({handleModal, id}) => {
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.4, duration: 0.5 }}
+                  transition={{ delay: 0.5, duration: 0.5 }}
                   className="hidden lg:block"
                 >
                   <motion.button 
-                    className={`${modal.textColor} ${modal.borderColor} border-2 cursor-pointer hover:${modal.bgColor.replace('/10', '/20')} transition-all duration-300 rounded-full px-8 py-4 font-medium flex items-center gap-3 w-full justify-center group`}
-                    onClick={handleModal}
+                    className={`${modal.textColor} ${modal.borderColor} border-2 cursor-pointer hover:${modal.bgColor.replace('/10', '/20')} transition-all duration-300 rounded-full px-8 py-4 font-medium flex items-center gap-3`}
+                    onClick={() => {
+                      handleModal();
+                      const contactSection = document.getElementById('contact-us');
+                      if (contactSection) {
+                        contactSection.scrollIntoView({ behavior: 'smooth' });
+                      }
+                    }}
                     whileHover={{ scale: 1.03 }}
                     whileTap={{ scale: 0.98 }}
                   >
@@ -219,7 +223,7 @@ const Modal: React.FC<ModalProps> = ({handleModal, id}) => {
               {/* Right column - Description and features */}
               <div className="lg:col-span-3 flex flex-col gap-8">
                 <motion.p 
-                  className={`${textColorMode} text-lg leading-relaxed`}
+                  className={`${textColorMode} text-md lg:text-lg leading-relaxed`}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.3, duration: 0.5 }}
@@ -229,7 +233,7 @@ const Modal: React.FC<ModalProps> = ({handleModal, id}) => {
                 
                 <div>
                   <motion.h3 
-                    className={`${modal.textColor} font-semibold text-xl mb-6 flex items-center gap-2`}
+                    className={`${modal.textColor} font-semibold text-lg lg:text-xl mb-6 flex items-center gap-2`}
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.4, duration: 0.5 }}
@@ -274,7 +278,13 @@ const Modal: React.FC<ModalProps> = ({handleModal, id}) => {
             >
               <motion.button 
                 className={`${modal.textColor} ${modal.borderColor} border-2 cursor-pointer hover:${modal.bgColor.replace('/10', '/20')} transition-all duration-300 rounded-full px-8 py-4 font-medium flex items-center gap-3 w-full max-w-xs justify-center`}
-                onClick={handleModal}
+                onClick={() => {
+                  handleModal();
+                  const contactSection = document.getElementById('contact-us');
+                  if (contactSection) {
+                    contactSection.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }}
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.98 }}
               >
