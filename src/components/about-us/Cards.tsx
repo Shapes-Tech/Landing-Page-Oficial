@@ -133,13 +133,13 @@ const Cards: React.FC<AboutUsProps> = ({
           damping: 20 
         }
       }}
-      className={`border ${borderColor} max-w-[37rem] w-full rounded-2xl h-[34rem] aboutUs-text-midLg:h-[32rem] aboutUs-img-lg:h-[42rem] aboutUs-img-xlbig:h-[43rem] flex flex-col p-5 font-quicksand overflow-hidden relative`}
+      className={`border ${borderColor} max-w-[45rem] w-full flex items-center h-fit change-desktop:flex-row flex-col gap-7 rounded-2xl h-[21rem] aboutUs-text-midLg:h-[20rem] aboutUs-img-lg:h-[25rem]  aboutUs-img-xlbig:h-[25rem] p-5 font-quicksand overflow-hidden relative`}
     >
       <div className="relative group">
         <motion.img
           variants={imageVariants}
           whileHover="hover"
-          className="relative w-[30rem] h-[15rem] aboutUs-text-lg:h-[25rem] object-cover rounded-2xl mx-auto grayscale transition-all duration-300"
+          className="relative w-[25rem] h-[20rem] change-desktop:w-[65rem] change-desktop:h-[15rem] aboutUs-text-lg:h-[22rem] object-cover rounded-2xl mx-auto grayscale transition-all duration-300"
           src={img}
           alt={`Imagen de ${name} ${lastName}`}
         />
@@ -148,6 +148,7 @@ const Cards: React.FC<AboutUsProps> = ({
           {shape}
         </div> */}
       </div>
+      <div className="">
 
       <motion.p 
         variants={textVariants}
@@ -166,7 +167,7 @@ const Cards: React.FC<AboutUsProps> = ({
       
       <motion.p 
         variants={textVariants}
-        className={` ${textColorDescription} w-[80%] font-light text-big aboutUs-text-xbig:text-xl mt-5`}
+        className={` ${textColorDescription} w-[95%] aboutUs-text-midLg:w-[90%] font-light text-big text-sm aboutUs-text-lg:text-lg aboutUs-text-xbig:text-xl mt-5`}
       >
         {description}
       </motion.p>
@@ -177,7 +178,7 @@ const Cards: React.FC<AboutUsProps> = ({
       >
         {linkedin && (
           <motion.a 
-            className="text-4xl" 
+            className=" text-2xl aboutUs-text-midLg:text-2xl aboutUs-img-lg:text-4xl" 
             href={linkedin}
             whileHover="hover"
             variants={socialVariants}
@@ -187,7 +188,7 @@ const Cards: React.FC<AboutUsProps> = ({
         )}
         {github && (
           <motion.a 
-            className="text-4xl" 
+            className=" text-2xl aboutUs-text-midLg:text-2xl aboutUs-img-lg:text-4xl" 
             href={github}
             whileHover="hover"
             variants={socialVariants}
@@ -196,6 +197,8 @@ const Cards: React.FC<AboutUsProps> = ({
           </motion.a>
         )}
       </motion.div>
+      </div>
+
     </motion.div>
   );
 };
